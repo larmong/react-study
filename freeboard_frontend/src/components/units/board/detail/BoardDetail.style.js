@@ -89,6 +89,9 @@ export const CommentCreateScore = styled.div `
     cursor: pointer;
   }
 `
+export const CommentScore = styled.div `
+  display: inline-block;
+`
 export const CommentCreateText = styled.textarea `
   width: 100%;
   height: 108px;

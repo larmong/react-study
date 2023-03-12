@@ -1,7 +1,10 @@
 import * as S from "./BoardDetail.style";
 import {getMyDate} from "../../../../commons/utils/utils";
+import {CommentScore} from "./BoardDetail.style";
+import {useState} from "react";
 
 export default function BoardDetailUI(props) {
+
   return (
     <S.Wrapper>
       <S.Container>
@@ -9,8 +12,8 @@ export default function BoardDetailUI(props) {
           <S.Profile>
             <img src="/profile.svg" alt="프로필사진"/>
             <div>
-              <h6>{props.data?.fetchBoard?.writer}</h6>
-              <p>Date : <span>{getMyDate(props.data?.fetchBoard?.createdAt)}</span></p>
+              <h6>{props.fetchBoard?.fetchBoard?.writer}</h6>
+              <p>Date : <span>{getMyDate(props.fetchBoard?.fetchBoard?.createdAt)}</span></p>
             </div>
           </S.Profile>
           <S.IconGroup>
@@ -28,9 +31,9 @@ export default function BoardDetailUI(props) {
         </S.DetailTop>
 
         <S.Line></S.Line>
-        <S.DetailTitle>{props.data?.fetchBoard?.title}</S.DetailTitle>
+        <S.DetailTitle>{props.fetchBoard?.fetchBoard?.title}</S.DetailTitle>
         <S.DetailImages src="/sample.png" alt="샘플이미지"/>
-        <S.DetailContents>{props.data?.fetchBoard?.contents}</S.DetailContents>
+        <S.DetailContents>{props.fetchBoard?.fetchBoard?.contents}</S.DetailContents>
         <S.UpDownGroup>
           <S.UpDown><img src="/up.svg" alt="좋아요"/><span>1920</span></S.UpDown>
           <S.UpDown><img src="/down.svg" alt="싫어요"/><span>231</span></S.UpDown>
@@ -51,8 +54,8 @@ export default function BoardDetailUI(props) {
         </S.CommentTitle>
         <S.CommentCreate>
           <S.CommentCreateInfo>
-            <S.CommentCreateInput type="text" placeholder="작성자" />
-            <S.CommentCreateInput type="password" placeholder="비밀번호" />
+            <S.CommentCreateInput type="text" onChange={props.onChangeCommentWriter} placeholder="작성자" />
+            <S.CommentCreateInput type="password" onChange={props.onChangeCommentPassword} placeholder="비밀번호" />
             <S.CommentCreateScore>
               <img src="/star.svg" alt="스코어"/>
               <img src="/star.svg" alt="스코어"/>
@@ -62,83 +65,41 @@ export default function BoardDetailUI(props) {
             </S.CommentCreateScore>
           </S.CommentCreateInfo>
           <S.CommentCreateContents>
-            <S.CommentCreateText placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다." />
+            <S.CommentCreateText onChange={props.onChangeCommentContents} maxLength={100} placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다." />
             <S.CommentCreateBtn>
-              <span>0/100</span>
-              <button>등록하기</button>
+              <span>{props.commentLength}/100</span>
+              <button onClick={props.onClickCreateComment} >등록하기</button>
             </S.CommentCreateBtn>
           </S.CommentCreateContents>
         </S.CommentCreate>
         <S.CommentContainer>
-          <S.Comment>
-            <S.CommentProfile>
-              <img src="/profile.svg" alt="프로필사진"/>
-              <div>
-                <S.CommentProfileNameScore>
-                  <h6>홍길동</h6>
-                  <S.CommentCreateScore>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/star.svg" alt="스코어"/>
-                  </S.CommentCreateScore>
-                </S.CommentProfileNameScore>
-                <p>진짜 유익하고 정말 필요한 정보인 것 같아요~! 앞으로도 좋은 정보 부탁드립니다~!</p>
-                <span>2021.02.22</span>
-              </div>
-            </S.CommentProfile>
-            <S.EditGroup>
-              <img src="/pencil.svg" alt="아이콘"/>
-              <img src="/clear.svg" alt="아이콘"/>
-            </S.EditGroup>
-          </S.Comment>
-          <S.Comment>
-            <S.CommentProfile>
-              <img src="/profile.svg" alt="프로필사진"/>
-              <div>
-                <S.CommentProfileNameScore>
-                  <h6>이루이</h6>
-                  <S.CommentCreateScore>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/star.svg" alt="스코어"/>
-                  </S.CommentCreateScore>
-                </S.CommentProfileNameScore>
-                <p>진짜 좋네요~ 감사합니다~!</p>
-                <span>2021.02.22</span>
-              </div>
-            </S.CommentProfile>
-            <S.EditGroup>
-              <img src="/pencil.svg" alt="아이콘"/>
-              <img src="/clear.svg" alt="아이콘"/>
-            </S.EditGroup>
-          </S.Comment>
-          <S.Comment>
-            <S.CommentProfile>
-              <img src="/profile.svg" alt="프로필사진"/>
-              <div>
-                <S.CommentProfileNameScore>
-                  <h6>한루이</h6>
-                  <S.CommentCreateScore>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/starActive.svg" alt="스코어"/>
-                    <img src="/star.svg" alt="스코어"/>
-                  </S.CommentCreateScore>
-                </S.CommentProfileNameScore>
-                <p>앞으로도 좋은 정보 부탁드립니다~!</p>
-                <span>2021.02.22</span>
-              </div>
-            </S.CommentProfile>
-            <S.EditGroup>
-              <img src="/pencil.svg" alt="아이콘"/>
-              <img src="/clear.svg" alt="아이콘"/>
-            </S.EditGroup>
-          </S.Comment>
+          {
+            props.fetchBoardComments?.fetchBoardComments.map(el => (
+              <S.Comment key={el._id}>
+                <S.CommentProfile>
+                  <img src="/profile.svg" alt="프로필사진"/>
+                  <div>
+                    <S.CommentProfileNameScore>
+                      <h6>{el.writer}</h6>
+                      <S.CommentScore>
+                        <img src="/starActive.svg" alt="스코어"/>
+                        <img src="/starActive.svg" alt="스코어"/>
+                        <img src="/starActive.svg" alt="스코어"/>
+                        <img src="/starActive.svg" alt="스코어"/>
+                        <img src="/star.svg" alt="스코어"/>
+                      </S.CommentScore>
+                    </S.CommentProfileNameScore>
+                    <p>{el.contents}</p>
+                    <span>{getMyDate(el.createdAt)}</span>
+                  </div>
+                </S.CommentProfile>
+                <S.EditGroup>
+                  <img src="/pencil.svg" alt="아이콘"/>
+                  <img src="/clear.svg" alt="아이콘"/>
+                </S.EditGroup>
+              </S.Comment>
+            ))
+          }
         </S.CommentContainer>
       </S.DetailBottom>
     </S.Wrapper>
