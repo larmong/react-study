@@ -5,7 +5,7 @@ export default function TypeScriptPage() {
 
     // 타입추론
     let aaa = "안녕하세요";
-    aaa = 3;
+    // aaa = 3;
 
 
     // 타입명시
@@ -20,13 +20,13 @@ export default function TypeScriptPage() {
 
     // 숫자 타입
     let ddd:number = 10;
-    ddd = "철수"
+    // ddd = "철수"
 
 
     // 불린 타입
     let eee: boolean = true;
     eee = false;
-    eee = "false";  // javascript에서는 true로 작동 함!
+    // eee = "false";  // javascript에서는 true로 작동 함!
 
 
     // 배열 타입
