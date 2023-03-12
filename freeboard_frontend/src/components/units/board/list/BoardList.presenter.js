@@ -50,8 +50,8 @@ export default function BoardListUI(props) {
             props.fetchBoards?.fetchBoards.map((el, index) => (
               <S.Row key={el._id}>
                 <span>{index+1}</span>
-                <span><S.ColumnTitle>{el.title}</S.ColumnTitle></span>
-                <span><S.ColumnContents>{el.writer}</S.ColumnContents></span>
+                <span><S.ColumnTitle onClick={props.onClickMoveToDetail} id={el._id}>{el.title}</S.ColumnTitle></span>
+                <span><S.ColumnWriter>{el.writer}</S.ColumnWriter></span>
                 <span>{getMyDate(el.createdAt)}</span>
               </S.Row>
             ))

@@ -232,7 +232,7 @@ export const ColumnTitle = styled.p `
   cursor: pointer;
   display: inline-flex;
 `
-export const ColumnContents = styled.p `
+export const ColumnWriter = styled.p `
   cursor: pointer;
   display: inline-flex;
 `

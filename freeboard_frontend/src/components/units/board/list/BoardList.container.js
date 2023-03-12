@@ -13,11 +13,16 @@ export default function BoardList() {
     router.push(`/boards/new`)
   }
 
+  const onClickMoveToDetail = (event) => {
+    router.push(`/boards/${event.target.id}`)
+  }
+
   return (
     <BoardListUI
       fetchBoards={fetchBoards}
       fetchBoardsOfTheBest={fetchBoardsOfTheBest}
       onClickMoveToNew={onClickMoveToNew}
+      onClickMoveToDetail={onClickMoveToDetail}
     />
   )
 }
