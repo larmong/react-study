@@ -7,7 +7,7 @@ const FETCH_BOARD = gql`
       title
       contents
     }
-  }
+  } 
 `
 
 export default function StaticRoutedPage() {
