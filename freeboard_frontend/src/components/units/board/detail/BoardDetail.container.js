@@ -15,11 +15,13 @@ export default function BoardDetail() {
   const [commentContents, setCommentContents] = useState("");
   const [commentRating, setCommentRating] = useState(4);
 
+  // console.log(router)
+
   const { data : fetchBoard } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query._id }
   })
   const { data : fetchBoardComments } = useQuery(FETCH_BOARD_COMMENTS, {
-    variables: { page: 1, boardId: router.query._id }
+    variables: { boardId: router.query._id }
   })
 
 
@@ -71,17 +73,20 @@ export default function BoardDetail() {
             },
             boardId: router.query._id
           },
-          refetchQueries: [{query: FETCH_BOARD_COMMENTS}]
+          refetchQueries: [
+            {
+              query: FETCH_BOARD_COMMENTS,
+              variables: { boardId: router.query._id }
+            }
+          ]
         })
         console.log(result)
         alert("댓글이 등록되었습니다! 🤩");
-        router.push(`/boards/${router.query._id}/edit`)
       } catch (error) {
         console.log(error)
       }
     }
   }
-
 
 
   return (

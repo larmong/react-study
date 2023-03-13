@@ -1,10 +1,7 @@
 import * as S from "./BoardDetail.style";
 import {getMyDate} from "../../../../commons/utils/utils";
-import {CommentScore} from "./BoardDetail.style";
-import {useState} from "react";
 
 export default function BoardDetailUI(props) {
-
   return (
     <S.Wrapper>
       <S.Container>
@@ -29,7 +26,6 @@ export default function BoardDetailUI(props) {
             }
           </S.IconGroup>
         </S.DetailTop>
-
         <S.Line></S.Line>
         <S.DetailTitle>{props.fetchBoard?.fetchBoard?.title}</S.DetailTitle>
         <S.DetailImages src="/sample.png" alt="샘플이미지"/>
