@@ -45,11 +45,6 @@ export const CREATE_BOARD_COMMENT = gql`
   }
 `;
 
-// writer: $writer,
-//   password: $password,
-//   contents: $contents,
-//   rating: $rating
-
 export const UPDATE_BOARD_COMMENT = gql`
   mutation updateBoardComment($updateBoardCommentInput: UpdateBoardCommentInput!, $password: String, $boardCommentId: ID!){
     updateBoardComment (

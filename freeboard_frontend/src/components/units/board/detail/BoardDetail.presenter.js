@@ -90,8 +90,8 @@ export default function BoardDetailUI(props) {
                   </div>
                 </S.CommentProfile>
                 <S.EditGroup>
-                  <img src="/pencil.svg" alt="아이콘"/>
-                  <img src="/clear.svg" alt="아이콘"/>
+                  <img src="/pencil.svg" alt="수정"/>
+                  <img onClick={props.onClickDeleteComment} id={el._id} src="/clear.svg" alt="삭제"/>
                 </S.EditGroup>
               </S.Comment>
             ))

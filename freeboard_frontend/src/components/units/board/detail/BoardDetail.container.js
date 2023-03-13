@@ -1,7 +1,13 @@
 import {useRouter} from "next/router";
 import {useState} from "react";
 import {useMutation, useQuery} from "@apollo/client";
-import {CREATE_BOARD_COMMENT, DELETE_BOARD, FETCH_BOARD, FETCH_BOARD_COMMENTS} from "./BoardDetail.queries";
+import {
+  CREATE_BOARD_COMMENT,
+  DELETE_BOARD,
+  DELETE_BOARD_COMMENT,
+  FETCH_BOARD,
+  FETCH_BOARD_COMMENTS
+} from "./BoardDetail.queries";
 import BoardDetailUI from "./BoardDetail.presenter";
 
 export default function BoardDetail() {
@@ -23,6 +29,8 @@ export default function BoardDetail() {
   const { data : fetchBoardComments } = useQuery(FETCH_BOARD_COMMENTS, {
     variables: { boardId: router.query._id }
   })
+  const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT)
+  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT)
 
 
   const onClickMoveToEdit = () => {
@@ -57,9 +65,6 @@ export default function BoardDetail() {
   }
 
 
-  const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT)
-
-
   const onClickCreateComment = async () => {
     if(commentWriter && commentPassword && commentContents){
       try {
@@ -80,7 +85,6 @@ export default function BoardDetail() {
             }
           ]
         })
-        console.log(result)
         alert("댓글이 등록되었습니다! 🤩");
       } catch (error) {
         console.log(error)
@@ -88,21 +92,44 @@ export default function BoardDetail() {
     }
   }
 
+  const onClickDeleteComment = async (event) => {
+    const userPassword = prompt("비밀번호를 입력해주세요 🤨");
+
+    try {
+      await deleteBoardComment({
+        variables: {
+          password: String(userPassword),
+          boardCommentId: event.target.id
+        },
+        refetchQueries: [
+          {
+            query: FETCH_BOARD_COMMENTS,
+            variables: { boardId: router.query._id }
+          }
+        ]
+      })
+      alert("댓글이 삭제되었습니다! 😶‍🌫");
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   return (
     <BoardDetailUI
-      locationInfo={locationInfo}
       fetchBoard={fetchBoard}
+      fetchBoardComments={fetchBoardComments}
+      locationInfo={locationInfo}
       onClickLocation={onClickLocation}
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}
-      fetchBoardComments={fetchBoardComments}
       commentLength={commentLength}
       onChangeCommentContents={onChangeCommentContents}
       onChangeCommentWriter={onChangeCommentWriter}
       onChangeCommentPassword={onChangeCommentPassword}
       onClickCreateComment={onClickCreateComment}
+      onClickDeleteComment={onClickDeleteComment}
     />
   )
 }
