@@ -1,6 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/06-04-map-boards-delete": "pages/06-04-map-boards-delete.js"
+  "/_document": "pages/_document.js"
 }

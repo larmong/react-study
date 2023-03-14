@@ -15,15 +15,20 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/": [
+    "/09-01-typescript-boards/[number]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/pages/09-01-typescript-boards/[number].js"
     ],
-    "/06-04-map-boards-delete": [
+    "/09-01-typescript-boards/[number]/edit": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/06-04-map-boards-delete.js"
+      "static/chunks/pages/09-01-typescript-boards/[number]/edit.js"
+    ],
+    "/09-01-typescript-boards/new": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/09-01-typescript-boards/new.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
