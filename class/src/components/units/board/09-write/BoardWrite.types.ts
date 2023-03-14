@@ -1,10 +1,10 @@
 import {ChangeEvent} from "react";
+import {IQuery} from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteProps {
     isEdit: boolean
-    data?:
+    data?: Pick<IQuery, "fetchBoard"> // codegen
 }
-
 // data?: "data.fetchBoard.writer"의 data 타입 지정,,, -> (Rest API는 다 써야하는게 맞음)
 // interface IData {
 //     fetchBoard: {
@@ -29,7 +29,7 @@ export interface IBoardWriteUIProps {
     onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void
     myColor: boolean
     isEdit: boolean
-    data: any
+    data: Pick<IQuery, "fetchBoard">
 }
 
 export interface IBlueButtonProps {
