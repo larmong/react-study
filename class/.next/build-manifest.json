@@ -20,16 +20,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/09-01-typescript-boards/[number].js"
     ],
-    "/09-01-typescript-boards/[number]/edit": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/09-01-typescript-boards/[number]/edit.js"
-    ],
-    "/09-01-typescript-boards/new": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/09-01-typescript-boards/new.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

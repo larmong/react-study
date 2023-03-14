@@ -2,8 +2,17 @@ import {ChangeEvent} from "react";
 
 export interface IBoardWriteProps {
     isEdit: boolean
-    data?: any
+    data?:
 }
+
+// data?: "data.fetchBoard.writer"의 data 타입 지정,,, -> (Rest API는 다 써야하는게 맞음)
+// interface IData {
+//     fetchBoard: {
+//         writer: string
+//         title: string
+//         contents: string
+//     }
+// }
 
 export interface IMyVariables {
     number: number
