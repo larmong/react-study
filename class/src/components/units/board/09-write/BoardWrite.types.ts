@@ -3,7 +3,7 @@ import {IQuery} from "../../../../commons/types/generated/types";
 
 export interface IBoardWriteProps {
     isEdit: boolean
-    data?: Pick<IQuery, "fetchBoard"> // codegen
+    data?: Pick<IQuery, "fetchBoard">
 }
 // data?: "data.fetchBoard.writer"의 data 타입 지정,,, -> (Rest API는 다 써야하는게 맞음)
 // interface IData {
@@ -29,7 +29,7 @@ export interface IBoardWriteUIProps {
     onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void
     myColor: boolean
     isEdit: boolean
-    data: Pick<IQuery, "fetchBoard">
+    data: any
 }
 
 export interface IBlueButtonProps {

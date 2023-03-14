@@ -1,7 +1,8 @@
 import * as S from "./BoardDetail.style";
 import {getMyDate} from "../../../../commons/utils/utils";
+import {IPropsBoardDetailUI} from "./BoardDetail.types";
 
-export default function BoardDetailUI(props) {
+export default function BoardDetailUI(props: IPropsBoardDetailUI) {
   return (
     <S.Wrapper>
       <S.Container>
@@ -17,7 +18,7 @@ export default function BoardDetailUI(props) {
             <img src="/share.svg" alt="공유아이콘"/>
             <img onClick={props.onClickLocation} src="/location.svg" alt="위치아이콘"/>
             {
-              props.locationInfo == true
+              props?.locationInfo == true
                 ? <S.LocationInfo>
                   서울특별시 영등포구 양산로 200<br />
                   (영등포동5가, 영등포시장역) 영등포 타임스퀘어 2층

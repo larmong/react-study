@@ -1,6 +1,13 @@
 import {useRouter} from "next/router";
-import {useState} from "react";
+import {ChangeEvent, useState} from "react";
 import {useMutation, useQuery} from "@apollo/client";
+import BoardDetailUI from "./BoardDetail.presenter";
+import {
+  IMutation, IMutationCreateBoardCommentArgs, IMutationDeleteBoardArgs, IMutationDeleteBoardCommentArgs,
+  IQuery,
+  IQueryFetchBoardArgs,
+  IQueryFetchBoardCommentsArgs
+} from "../../../../commons/types/generated/types";
 import {
   CREATE_BOARD_COMMENT,
   DELETE_BOARD,
@@ -8,30 +15,26 @@ import {
   FETCH_BOARD,
   FETCH_BOARD_COMMENTS
 } from "./BoardDetail.queries";
-import BoardDetailUI from "./BoardDetail.presenter";
+
 
 export default function BoardDetail() {
   const router = useRouter()
-  const [locationInfo, setLocationInfo] = useState(false);
-  const [deleteBoard] = useMutation(DELETE_BOARD);
-  const [commentLength, setCommentLength] = useState("0");
+  const [locationInfo, setLocationInfo] = useState<boolean>(false);
+  const [commentLength, setCommentLength] = useState<string>("0");
+  const [commentWriter, setCommentWriter] = useState<string>("");
+  const [commentPassword, setCommentPassword] = useState<string>("");
+  const [commentContents, setCommentContents] = useState<string>("");
+  const [commentRating, setCommentRating] = useState<number>(4);
 
-  const [commentWriter, setCommentWriter] = useState("");
-  const [commentPassword, setCommentPassword] = useState("");
-  const [commentContents, setCommentContents] = useState("");
-  const [commentRating, setCommentRating] = useState(4);
-
-  // console.log(router)
-
-  const { data : fetchBoard } = useQuery(FETCH_BOARD, {
-    variables: { boardId: router.query._id }
+  const [deleteBoard] = useMutation<Pick<IMutation, "deleteBoard">, IMutationDeleteBoardArgs>(DELETE_BOARD);
+  const [createBoardComment] = useMutation<Pick<IMutation, "createBoardComment">, IMutationCreateBoardCommentArgs>(CREATE_BOARD_COMMENT)
+  const [deleteBoardComment] = useMutation<Pick<IMutation, "deleteBoardComment">, IMutationDeleteBoardCommentArgs>(DELETE_BOARD_COMMENT)
+  const { data : fetchBoard } = useQuery<Pick<IQuery, "fetchBoard">, IQueryFetchBoardArgs>(FETCH_BOARD, {
+    variables: { boardId: String(router.query._id) }
   })
-  const { data : fetchBoardComments } = useQuery(FETCH_BOARD_COMMENTS, {
-    variables: { boardId: router.query._id }
+  const { data : fetchBoardComments } = useQuery<Pick<IQuery, "fetchBoardComments">, IQueryFetchBoardCommentsArgs>(FETCH_BOARD_COMMENTS, {
+    variables: { boardId: String(router.query._id) }
   })
-  const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT)
-  const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT)
-
 
   const onClickMoveToEdit = () => {
     router.push(`/boards/${router.query._id}/edit`)
@@ -40,7 +43,7 @@ export default function BoardDetail() {
   const onClickDelete = async () => {
     alert("게시글이 삭제되었습니다! 😶‍🌫");
     await deleteBoard({
-      variables: { boardId: router.query._id }
+      variables: { boardId: String(router.query._id) }
     })
     router.push(`/boards`)
   }
@@ -53,17 +56,16 @@ export default function BoardDetail() {
     setLocationInfo(!locationInfo)
   }
 
-  const onChangeCommentContents = (event) => {
-    setCommentLength(event.target.value.length)
+  const onChangeCommentContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setCommentContents(event.target.value)
+    setCommentLength(String(commentContents.length))
   }
-  const onChangeCommentWriter = (event) => {
+  const onChangeCommentWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setCommentWriter(event.target.value)
   }
-  const onChangeCommentPassword = (event) => {
+  const onChangeCommentPassword = (event: ChangeEvent<HTMLInputElement>) => {
     setCommentPassword(event.target.value)
   }
-
 
   const onClickCreateComment = async () => {
     if(commentWriter && commentPassword && commentContents){
@@ -76,12 +78,12 @@ export default function BoardDetail() {
               contents: commentContents,
               rating: commentRating
             },
-            boardId: router.query._id
+            boardId: String(router.query._id)
           },
           refetchQueries: [
             {
               query: FETCH_BOARD_COMMENTS,
-              variables: { boardId: router.query._id }
+              variables: { boardId: String(router.query._id) }
             }
           ]
         })
@@ -92,9 +94,10 @@ export default function BoardDetail() {
     }
   }
 
-  const onClickDeleteComment = async (event) => {
-    const userPassword = prompt("비밀번호를 입력해주세요 🤨");
 
+  // TODO : ChangeEvent ===> MouseEventHandler 변경해야함
+  const onClickDeleteComment = async (event: ChangeEvent<HTMLImageElement>) => {
+    const userPassword = prompt("비밀번호를 입력해주세요 🤨");
     try {
       await deleteBoardComment({
         variables: {
@@ -104,7 +107,7 @@ export default function BoardDetail() {
         refetchQueries: [
           {
             query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query._id }
+            variables: { boardId: String(router.query._id) }
           }
         ]
       })
@@ -113,7 +116,6 @@ export default function BoardDetail() {
       console.log(error)
     }
   }
-
 
   return (
     <BoardDetailUI
