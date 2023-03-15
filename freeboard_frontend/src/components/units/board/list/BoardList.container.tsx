@@ -3,7 +3,7 @@ import {useRouter} from "next/router";
 import BoardListUI from "./BoardList.presenter";
 import {FETCH_BOARDS, FETCH_BOARDS_OF_THE_BEST} from "./BoardList.queries";
 import {IQuery} from "../../../../commons/types/generated/types";
-import {ChangeEvent} from "react";
+import {CustomMouseEvent} from "./BoardList.types";
 
 export default function BoardList() {
   const router = useRouter();
@@ -14,9 +14,8 @@ export default function BoardList() {
     router.push(`/boards/new`)
   }
 
-  // TODO : ChangeEvent ===> MouseEventHandler 변경해야함
-  const onClickMoveToDetail = (event: ChangeEvent<HTMLImageElement>) => {
-    router.push(`/boards/${event.target.id}`)
+  const onClickMoveToDetail = (event: CustomMouseEvent) => {
+    router.push(`/boards/${(event.target as Element).id}`)
   }
 
   return (

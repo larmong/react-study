@@ -2,6 +2,7 @@ import {useRouter} from "next/router";
 import {ChangeEvent, useState} from "react";
 import {useMutation, useQuery} from "@apollo/client";
 import BoardDetailUI from "./BoardDetail.presenter";
+import {CustomMouseEvent} from "./BoardDetail.types";
 import {
   IMutation, IMutationCreateBoardCommentArgs, IMutationDeleteBoardArgs, IMutationDeleteBoardCommentArgs,
   IQuery,
@@ -15,7 +16,6 @@ import {
   FETCH_BOARD,
   FETCH_BOARD_COMMENTS
 } from "./BoardDetail.queries";
-
 
 export default function BoardDetail() {
   const router = useRouter()
@@ -94,15 +94,13 @@ export default function BoardDetail() {
     }
   }
 
-
-  // TODO : ChangeEvent ===> MouseEventHandler 변경해야함
-  const onClickDeleteComment = async (event: ChangeEvent<HTMLImageElement>) => {
+  const onClickDeleteComment = async (event: CustomMouseEvent) => {
     const userPassword = prompt("비밀번호를 입력해주세요 🤨");
     try {
       await deleteBoardComment({
         variables: {
           password: String(userPassword),
-          boardCommentId: event.target.id
+          boardCommentId: (event.target as Element).id
         },
         refetchQueries: [
           {

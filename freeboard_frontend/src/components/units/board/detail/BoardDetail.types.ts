@@ -1,5 +1,7 @@
 import {IQuery} from "../../../../commons/types/generated/types";
-import {ChangeEvent, MouseEventHandler} from "react";
+import {ChangeEvent, MouseEvent} from "react";
+
+export type CustomMouseEvent = MouseEvent<HTMLElement>
 
 export interface IPropsBoardDetailUI {
     fetchBoard?: Pick<IQuery, "fetchBoard">
@@ -14,6 +16,5 @@ export interface IPropsBoardDetailUI {
     onChangeCommentWriter: (event: ChangeEvent<HTMLInputElement>) => void
     onChangeCommentPassword: (event: ChangeEvent<HTMLInputElement>) => void
     onClickCreateComment: () => void
-    // TODO : ChangeEvent ===> MouseEventHandler 변경해야함
-    onClickDeleteComment: any // (event: MouseEventHandler<HTMLImageElement>) => void
+    onClickDeleteComment: (event: CustomMouseEvent) => void
 }
