@@ -1,6 +1,7 @@
 import * as S from "./BoardWrite.style";
+import {IPropsBoardWriteUI} from "./BoardWrite.types";
 
-export default function BoardWriteUI(props) {
+export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (
     <S.Wrapper>
       <S.Container>
