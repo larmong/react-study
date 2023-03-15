@@ -2,8 +2,8 @@ import {IQuery} from "../../../../commons/types/generated/types";
 import {ChangeEvent, MouseEventHandler} from "react";
 
 export interface IPropsBoardDetailUI {
-    fetchBoard: Pick<IQuery, "fetchBoard"> | undefined
-    fetchBoardComments: Pick<IQuery, "fetchBoardComments"> | undefined
+    fetchBoard?: Pick<IQuery, "fetchBoard">
+    fetchBoardComments?: Pick<IQuery, "fetchBoardComments">
     locationInfo: boolean
     onClickLocation: () => void
     onClickMoveToEdit: () => void
