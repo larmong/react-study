@@ -18,3 +18,4 @@ export interface IPropsBoardDetailUI {
     onClickCreateComment: () => void
     onClickDeleteComment: (event: CustomMouseEvent) => void
 }
+

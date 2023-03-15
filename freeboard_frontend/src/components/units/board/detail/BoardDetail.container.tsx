@@ -100,7 +100,7 @@ export default function BoardDetail() {
       await deleteBoardComment({
         variables: {
           password: String(userPassword),
-          boardCommentId: (event.target as Element).id
+          boardCommentId: (event.currentTarget as Element).id
         },
         refetchQueries: [
           {
@@ -114,6 +114,7 @@ export default function BoardDetail() {
       console.log(error)
     }
   }
+
 
   return (
     <BoardDetailUI

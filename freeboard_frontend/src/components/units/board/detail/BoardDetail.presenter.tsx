@@ -72,7 +72,7 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         <S.CommentContainer>
           {
             props.fetchBoardComments?.fetchBoardComments.map(el => (
-              <S.Comment key={el._id}>
+              <S.Comment key={el._id} onClick={() => {alert(`${el.writer}님이 작성한 글 입니다!`)}}>
                 <S.CommentProfile>
                   <img src="/profile.svg" alt="프로필사진"/>
                   <div>

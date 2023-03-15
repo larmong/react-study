@@ -15,7 +15,7 @@ export default function BoardList() {
   }
 
   const onClickMoveToDetail = (event: CustomMouseEvent) => {
-    router.push(`/boards/${(event.target as Element).id}`)
+    router.push(`/boards/${(event.currentTarget as Element).id}`)
   }
 
   return (
