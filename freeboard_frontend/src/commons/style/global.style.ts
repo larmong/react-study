@@ -1,24 +1,28 @@
-* {
+import styled from '@emotion/styled'
+
+export const GlobalStyle = styled('html')`
+  * {
     margin: 0;
     box-sizing: border-box;
-}
-body {
+  }
+  body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-ul {
+  }
+  ul {
     margin: 0;
     padding: 0;
     list-style: none;
-}
-button:focus, input:focus, textarea:focus {
+  }
+  button:focus, input:focus, textarea:focus {
     outline: none;
-}
-input::placeholder, textarea::placeholder {
+  }
+  input::placeholder, textarea::placeholder {
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 23px;
     color: #BDBDBD;
-}
+  }
+`
