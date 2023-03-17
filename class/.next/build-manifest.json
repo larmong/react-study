@@ -15,15 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/12-03-modal-alert": [
+    "/12-05-modal-custom-address": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/12-03-modal-alert.js"
-    ],
-    "/12-04-modal-custom": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/12-04-modal-custom.js"
+      "static/chunks/pages/12-05-modal-custom-address.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

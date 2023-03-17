@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "antd";
 
-export default function App() {
+export default function ModalCustomPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
