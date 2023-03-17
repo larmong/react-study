@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/09-01-typescript-boards/[number]": [
+    "/12-02-library-star": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/09-01-typescript-boards/[number].js"
+      "static/chunks/pages/12-02-library-star.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

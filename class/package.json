@@ -2,14 +2,15 @@
   "name": "class",
   "version": "0.1.0",
   "private": true,
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint",
-  "generate": "graphql-codegen"
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate": "graphql-codegen"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.0.1",
     "@apollo/client": "^3.7.9",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
