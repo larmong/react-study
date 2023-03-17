@@ -23,6 +23,8 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [titleError, setTitleError] = useState<string>("");
   const [contentsError, setContentsError] = useState<string>("");
 
+  const [isAddressToggle, setIsAddressToggle] = useState(false);
+
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
     IMutationCreateBoardArgs
@@ -117,12 +119,24 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     router.push(`/boards/${router.query._id}`);
   };
 
+  const AddressModalState = () => {
+    setIsAddressToggle((prev) => !prev);
+  };
+
+  const handleComplete = (data: any) => {
+    let fullAddress = data.address;
+
+    console.log(data);
+    console.log(fullAddress);
+  };
+
   return (
     <BoardWriteUI
       writerError={writerError}
       passwordError={passwordError}
       titleError={titleError}
       contentsError={contentsError}
+      isAddressToggle={isAddressToggle}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
@@ -130,6 +144,8 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       onClickSubmit={onClickSubmit}
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToList={onClickMoveToList}
+      AddressModalState={AddressModalState}
+      handleComplete={handleComplete}
       isEdit={props.isEdit}
       data={props.data}
     />

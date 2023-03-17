@@ -1,42 +1,43 @@
 import styled from "@emotion/styled";
+import DaumPostcodeEmbed from "react-daum-postcode";
 
-export const ActivateBtn = styled.button `
+export const ActivateBtn = styled.button`
   border: none;
   width: 179px;
   height: 52px;
-  background: #FFD600;
+  background: #ffd600;
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
   text-align: center;
   color: #000000;
   cursor: pointer;
-`
-export const DisabledBtn = styled.button `
+`;
+export const DisabledBtn = styled.button`
   border: none;
   width: 179px;
   height: 52px;
-  background: #BDBDBD;
+  background: #bdbdbd;
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
   text-align: center;
-  color: #4F4F4F;
+  color: #4f4f4f;
   cursor: pointer;
   margin-right: 24px;
-`
-export const AddressBtn = styled.button `
+`;
+export const AddressBtn = styled.button`
   border: none;
   width: 124px;
   height: 52px;
   background: #000000;
   font-weight: 500;
   font-size: 16px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-left: 16px;
   cursor: pointer;
-`
-export const AddressGroup = styled.div `
+`;
+export const AddressGroup = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -50,56 +51,56 @@ export const AddressGroup = styled.div `
   > input {
     margin-bottom: 16px;
   }
-`
-export const BtnCenter = styled.div `
+`;
+export const BtnCenter = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-`
-export const Container = styled.div `
+`;
+export const Container = styled.div`
   width: 1200px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 60px 100px 100px 100px;
-`
-export const Error = styled.span `
+`;
+export const Error = styled.span`
   color: #d01010;
   display: inline-block;
   margin-left: 20px;
-`
-export const Group = styled.div `
+`;
+export const Group = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 40px;
-`
-export const InputItem = styled.input `
+`;
+export const InputItem = styled.input`
   width: 100%;
   height: 52px;
-  background: #FFFFFF;
-  border: 1px solid #BDBDBD;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
   padding: 14px 16px;
   font-size: 16px;
-`
-export const DisabledInput = styled.div `
+`;
+export const DisabledInput = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   height: 52px;
-  background: #FFFFFF;
-  border: 1px solid #BDBDBD;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
   padding: 14px 16px;
   font-size: 16px;
-`
-export const InputTitle = styled.span `
+`;
+export const InputTitle = styled.span`
   display: block;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 23px;
   margin-bottom: 16px;
-`
-export const MainSettingsGroup = styled.div `
+`;
+export const MainSettingsGroup = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 80px;
@@ -107,15 +108,15 @@ export const MainSettingsGroup = styled.div `
     display: flex;
     flex-direction: row;
   }
-`
-export const PageTitle = styled.h3 `
+`;
+export const PageTitle = styled.h3`
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 52px;
   text-align: center;
-`
-export const RadioItem = styled.div `
+`;
+export const RadioItem = styled.div`
   display: flex;
   margin-right: 22px;
   input {
@@ -134,17 +135,17 @@ export const RadioItem = styled.div `
   input:checked + label {
     position: relative;
     background: #fff;
-    border: 1px solid #FFD600;
+    border: 1px solid #ffd600;
   }
   input:checked + label:before {
     position: absolute;
-    content: '';
+    content: "";
     top: 3px;
     left: 3px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background: #FFD600;
+    background: #ffd600;
   }
   span {
     display: inline-block;
@@ -153,34 +154,34 @@ export const RadioItem = styled.div `
     line-height: 23px;
     color: #333;
   }
-`
-export const TextItem = styled.textarea `
+`;
+export const TextItem = styled.textarea`
   width: 100%;
   height: 480px;
-  background: #FFFFFF;
-  border: 1px solid #BDBDBD;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
   padding: 14px 16px;
   resize: none;
   font-size: 16px;
-`
-export const Twin = styled.div `
+`;
+export const Twin = styled.div`
   display: flex;
   flex-direction: column;
   width: 49%;
-`
-export const TwinGroup = styled.div `
+`;
+export const TwinGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 40px;
   width: 100%;
   padding-top: 80px;
-`
-export const UploadImg = styled.li `
+`;
+export const UploadImg = styled.li`
   width: 78px;
   height: 78px;
   margin-right: 24px;
-  background: #BDBDBD;
+  background: #bdbdbd;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -195,15 +196,16 @@ export const UploadImg = styled.li `
     font-weight: 500;
     font-size: 12px;
     line-height: 17px;
-    color: #4F4F4F;
+    color: #4f4f4f;
   }
-`
-export const UploadList = styled.ul `
+`;
+export const UploadList = styled.ul`
   display: flex;
-`
-export const Wrapper = styled.div `
+`;
+export const Wrapper = styled.div`
   width: 100%;
   margin: 80px auto;
-`
-
-
+`;
+export const AddressModal = styled(DaumPostcodeEmbed)`
+  padding: 30px 5px;
+`;

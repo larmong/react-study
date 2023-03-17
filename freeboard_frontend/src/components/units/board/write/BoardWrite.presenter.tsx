@@ -1,5 +1,6 @@
 import * as S from "./BoardWrite.style";
 import { IPropsBoardWriteUI } from "./BoardWrite.types";
+import { Modal } from "antd";
 
 export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (
@@ -57,7 +58,20 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           <S.InputTitle>주소</S.InputTitle>
           <div>
             <S.InputItem type="text" placeholder="07250" />
-            <S.AddressBtn>우편번호 검색</S.AddressBtn>
+            <S.AddressBtn onClick={props.AddressModalState}>
+              우편번호 검색
+            </S.AddressBtn>
+
+            {props.isAddressToggle && (
+              <Modal
+                centered
+                open={true}
+                onOk={() => props.AddressModalState}
+                onCancel={() => props.AddressModalState}
+              >
+                <S.AddressModal onComplete={props.handleComplete} {...props} />
+              </Modal>
+            )}
           </div>
           <S.InputItem type="text" />
           <S.InputItem type="text" />
