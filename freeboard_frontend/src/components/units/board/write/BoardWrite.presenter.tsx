@@ -59,7 +59,7 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           <div>
             <S.InputItem
               type="text"
-              value={props.userZoneCode}
+              defaultValue={props.userZoneCode}
               placeholder="07250"
             />
             <S.AddressBtn onClick={props.modalToggle}>
@@ -78,7 +78,7 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
               </S.Modal>
             )}
           </div>
-          <S.InputItem type="text" value={props.userAddress} />
+          <S.InputItem type="text" defaultValue={props.userAddress} />
           <S.InputItem type="text" onChange={props.onChangeAddress} />
         </S.AddressGroup>
         <S.Group>

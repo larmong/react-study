@@ -1,5 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { AppProps } from "next/app";
+import { Global } from "@emotion/react";
 import { GlobalStyle } from "../src/commons/style/global.style";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -9,10 +10,9 @@ export default function App({ Component, pageProps }: AppProps) {
   });
 
   return (
-    <GlobalStyle>
-      <ApolloProvider client={client}>
-        <Component {...pageProps} />
-      </ApolloProvider>
-    </GlobalStyle>
+    <ApolloProvider client={client}>
+      <Global styles={GlobalStyle} />
+      <Component {...pageProps} />
+    </ApolloProvider>
   );
 }
