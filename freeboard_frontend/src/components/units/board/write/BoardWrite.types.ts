@@ -1,5 +1,6 @@
 import { IQuery } from "../../../../commons/types/generated/types";
 import { ChangeEvent } from "react";
+import { CustomMouseEvent } from "../list/BoardList.types";
 
 export interface IPropsBoardWrite {
   isEdit: boolean;
@@ -16,7 +17,6 @@ export interface IPropsBoardWriteUI {
   passwordError: string;
   titleError: string;
   contentsError: string;
-  isAddressToggle: boolean;
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -24,8 +24,15 @@ export interface IPropsBoardWriteUI {
   onClickSubmit: () => void;
   onClickMoveToEdit: () => void;
   onClickMoveToList: () => void;
-  AddressModalState: () => void;
-  handleComplete: any;
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
+  isModal: boolean;
+  userZoneCode: string;
+  userAddress: string;
+  userApartment: string;
+  addressError: string;
+  modalToggle: () => void;
+  modalCurrentTarget: (event: CustomMouseEvent) => void;
+  handleComplete: (data: any) => void;
+  onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
 }

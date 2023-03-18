@@ -9,6 +9,7 @@ import {
   IMutationUpdateBoardArgs,
 } from "../../../../commons/types/generated/types";
 import { IPropsBoardWrite, IEditVariables } from "./BoardWrite.types";
+import { CustomMouseEvent } from "../list/BoardList.types";
 
 export default function BoardWrite(props: IPropsBoardWrite) {
   const router = useRouter();
@@ -22,8 +23,12 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [passwordError, setPasswordError] = useState<string>("");
   const [titleError, setTitleError] = useState<string>("");
   const [contentsError, setContentsError] = useState<string>("");
+  const [addressError, setAddressError] = useState<string>("");
 
-  const [isAddressToggle, setIsAddressToggle] = useState(false);
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [userZoneCode, setUserZoneCode] = useState<string>("");
+  const [userAddress, setUserAddress] = useState<string>("");
+  const [userApartment, setUserApartment] = useState<string>("");
 
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -72,6 +77,9 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     if (!contents) {
       setContentsError("🚫 내용을 입력해주세요! 🚫");
     }
+    if (!userApartment) {
+      setAddressError("🚫 주소를 입력해주세요! 🚫");
+    }
     if (writer && password && title && contents) {
       alert("게시글이 등록되었습니다! 🥳");
 
@@ -119,16 +127,29 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     router.push(`/boards/${router.query._id}`);
   };
 
-  const AddressModalState = () => {
-    setIsAddressToggle((prev) => !prev);
+  const modalToggle = () => {
+    setIsModal((prev: boolean) => !prev);
+  };
+  const modalCurrentTarget = (event: CustomMouseEvent) => {
+    if (isModal && event.target === event.currentTarget) {
+      modalToggle();
+    }
   };
 
   const handleComplete = (data: any) => {
-    let fullAddress = data.address;
-
-    console.log(data);
-    console.log(fullAddress);
+    setUserZoneCode(data.zonecode);
+    setUserAddress(data.address);
+    if (!userZoneCode && !userAddress) {
+      modalToggle();
+    }
   };
+
+  function onChangeAddress(event: ChangeEvent<HTMLInputElement>) {
+    setUserApartment(event.target.value);
+    if (event.target.value !== "") {
+      setAddressError("");
+    }
+  }
 
   return (
     <BoardWriteUI
@@ -136,7 +157,6 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       passwordError={passwordError}
       titleError={titleError}
       contentsError={contentsError}
-      isAddressToggle={isAddressToggle}
       onChangeWriter={onChangeWriter}
       onChangePassword={onChangePassword}
       onChangeTitle={onChangeTitle}
@@ -144,10 +164,17 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       onClickSubmit={onClickSubmit}
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToList={onClickMoveToList}
-      AddressModalState={AddressModalState}
-      handleComplete={handleComplete}
       isEdit={props.isEdit}
       data={props.data}
+      isModal={isModal}
+      userZoneCode={userZoneCode}
+      userAddress={userAddress}
+      userApartment={userApartment}
+      addressError={addressError}
+      modalToggle={modalToggle}
+      modalCurrentTarget={modalCurrentTarget}
+      handleComplete={handleComplete}
+      onChangeAddress={onChangeAddress}
     />
   );
 }

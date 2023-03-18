@@ -1,6 +1,6 @@
 import * as S from "./BoardWrite.style";
 import { IPropsBoardWriteUI } from "./BoardWrite.types";
-import { Modal } from "antd";
+import DaumPostcodeEmbed from "react-daum-postcode";
 
 export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (
@@ -57,24 +57,29 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
         <S.AddressGroup>
           <S.InputTitle>주소</S.InputTitle>
           <div>
-            <S.InputItem type="text" placeholder="07250" />
-            <S.AddressBtn onClick={props.AddressModalState}>
+            <S.InputItem
+              type="text"
+              value={props.userZoneCode}
+              placeholder="07250"
+            />
+            <S.AddressBtn onClick={props.modalToggle}>
               우편번호 검색
             </S.AddressBtn>
-
-            {props.isAddressToggle && (
-              <Modal
-                centered
-                open={true}
-                onOk={() => props.AddressModalState}
-                onCancel={() => props.AddressModalState}
-              >
-                <S.AddressModal onComplete={props.handleComplete} {...props} />
-              </Modal>
+            <S.Error>{props.addressError}</S.Error>
+            {props.isModal && (
+              <S.Modal onClick={props.modalCurrentTarget}>
+                <S.ModalContainer>
+                  <S.CloseBtn onClick={props.modalToggle}>X</S.CloseBtn>
+                  <DaumPostcodeEmbed
+                    onComplete={props.handleComplete}
+                    autoClose={false}
+                  />
+                </S.ModalContainer>
+              </S.Modal>
             )}
           </div>
-          <S.InputItem type="text" />
-          <S.InputItem type="text" />
+          <S.InputItem type="text" value={props.userAddress} />
+          <S.InputItem type="text" onChange={props.onChangeAddress} />
         </S.AddressGroup>
         <S.Group>
           <S.InputTitle>유튜브</S.InputTitle>
