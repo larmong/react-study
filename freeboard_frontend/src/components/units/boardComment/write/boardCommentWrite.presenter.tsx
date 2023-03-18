@@ -20,13 +20,11 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUI) {
             onChange={props.onChangeCommentPassword}
             placeholder="비밀번호"
           />
-          <S.CommentCreateScore>
-            <img src="/star.svg" alt="스코어" />
-            <img src="/star.svg" alt="스코어" />
-            <img src="/star.svg" alt="스코어" />
-            <img src="/star.svg" alt="스코어" />
-            <img src="/star.svg" alt="스코어" />
-          </S.CommentCreateScore>
+          <S.CommentCreateScore
+            allowHalf
+            defaultValue={props.commentRating}
+            onChange={props.onChangeRating}
+          />
         </S.CommentCreateInfo>
         <S.CommentCreateContents>
           <S.CommentCreateText

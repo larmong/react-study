@@ -1,29 +1,23 @@
 import * as S from "./boardCommentList.style";
 import { IBoardCommentListUI } from "./boardCommentList.types";
 import { getMyDate } from "../../../../commons/utils/utils";
+import { Rate } from "antd";
+import { CommentScore } from "./boardCommentList.style";
 
 export default function BoardCommentListUI(props: IBoardCommentListUI) {
   return (
     <>
       {props.fetchBoardComments?.fetchBoardComments.map((el) => (
         <S.Comment key={el._id}>
-          <S.CommentProfile>
-            <img src="/profile.svg" alt="프로필사진" />
-            <div>
-              <S.CommentProfileNameScore>
-                <h6>{el.writer}</h6>
-                <S.CommentScore>
-                  <img src="/starActive.svg" alt="스코어" />
-                  <img src="/starActive.svg" alt="스코어" />
-                  <img src="/starActive.svg" alt="스코어" />
-                  <img src="/starActive.svg" alt="스코어" />
-                  <img src="/star.svg" alt="스코어" />
-                </S.CommentScore>
-              </S.CommentProfileNameScore>
-              <p>{el.contents}</p>
-              <span>{getMyDate(el.createdAt)}</span>
-            </div>
-          </S.CommentProfile>
+          <S.ProfilePicture src="/profile.svg" alt="프로필사진" />
+          <S.ProfileContents>
+            <S.CommentGroup>
+              <S.CommentWrite>{el.writer}</S.CommentWrite>
+              <S.CommentScore disabled allowHalf defaultValue={el.rating} />
+            </S.CommentGroup>
+            <S.CommentContents>{el.contents}</S.CommentContents>
+            <S.CommentDate>{getMyDate(el.createdAt)}</S.CommentDate>
+          </S.ProfileContents>
           <S.EditGroup>
             <img src="/pencil.svg" alt="수정" />
             <img

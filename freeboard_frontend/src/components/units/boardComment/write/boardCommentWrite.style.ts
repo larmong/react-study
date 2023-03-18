@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const CommentCreate = styled.div`
   margin-bottom: 40px;
@@ -51,11 +52,8 @@ export const CommentCreateInput = styled.input`
   margin-right: 24px;
   font-size: 16px;
 `;
-export const CommentCreateScore = styled.div`
-  display: inline-block;
-  img {
-    cursor: pointer;
-  }
+export const CommentCreateScore = styled(Rate)`
+  margin-top: -7px;
 `;
 export const CommentCreateText = styled.textarea`
   width: 100%;

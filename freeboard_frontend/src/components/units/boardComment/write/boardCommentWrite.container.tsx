@@ -18,7 +18,7 @@ export default function BoardCommentWrite() {
   const [commentWriter, setCommentWriter] = useState<string>("");
   const [commentPassword, setCommentPassword] = useState<string>("");
   const [commentContents, setCommentContents] = useState<string>("");
-  const [commentRating, setCommentRating] = useState<number>(4);
+  const [commentRating, setCommentRating] = useState<number>(0);
 
   const [createBoardComment] = useMutation<
     Pick<IMutation, "createBoardComment">,
@@ -35,9 +35,17 @@ export default function BoardCommentWrite() {
   const onChangeCommentPassword = (event: ChangeEvent<HTMLInputElement>) => {
     setCommentPassword(event.target.value);
   };
+  const onChangeRating = (value: number) => {
+    setCommentRating(value);
+  };
 
   const onClickCreateComment = async () => {
-    if (commentWriter && commentPassword && commentContents) {
+    if (
+      commentWriter &&
+      commentPassword &&
+      commentContents &&
+      commentRating !== 0
+    ) {
       try {
         const result = await createBoardComment({
           variables: {
@@ -66,10 +74,12 @@ export default function BoardCommentWrite() {
   return (
     <BoardCommentWriteUI
       commentLength={commentLength}
+      commentRating={commentRating}
       onChangeCommentContents={onChangeCommentContents}
       onChangeCommentWriter={onChangeCommentWriter}
       onChangeCommentPassword={onChangeCommentPassword}
       onClickCreateComment={onClickCreateComment}
+      onChangeRating={onChangeRating}
     />
   );
 }
