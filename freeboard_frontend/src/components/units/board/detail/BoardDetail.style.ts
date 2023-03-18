@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const BorderBtn = styled.button `
+export const BorderBtn = styled.button`
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
@@ -8,34 +8,32 @@ export const BorderBtn = styled.button `
   text-align: center;
   width: 179px;
   height: 45px;
-  background: #FFFFFF;
-  border: 1px solid #BDBDBD;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
   margin-right: 24px;
-`
-export const BtnGroup = styled.div `
+`;
+export const BtnGroup = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
   button:last-child {
     margin-right: 0;
   }
-`
-export const CommentContainer = styled.div `
-
-`
-export const Comment = styled.div `
-  border-bottom: 1px solid #BDBDBD;
+`;
+export const CommentContainer = styled.div``;
+export const Comment = styled.div`
+  border-bottom: 1px solid #bdbdbd;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 58px;
   margin-bottom: 20px;
-`
-export const CommentCreate = styled.div `
+`;
+export const CommentCreate = styled.div`
   margin-bottom: 40px;
-`
-export const CommentCreateBtn = styled.div `
+`;
+export const CommentCreateBtn = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,7 +44,7 @@ export const CommentCreateBtn = styled.div `
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
-    color: #BDBDBD;
+    color: #bdbdbd;
   }
   button {
     width: 91px;
@@ -60,48 +58,48 @@ export const CommentCreateBtn = styled.div `
     border: none;
     cursor: pointer;
   }
-`
-export const CommentCreateContents = styled.div `
+`;
+export const CommentCreateContents = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 161px;
-  border: 1px solid #BDBDBD;
+  border: 1px solid #bdbdbd;
   margin-top: 20px;
-`
-export const CommentCreateInfo = styled.div `
+`;
+export const CommentCreateInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
-export const CommentCreateInput = styled.input `
+`;
+export const CommentCreateInput = styled.input`
   width: 180px;
   height: 52px;
-  background: #FFFFFF;
-  border: 1px solid #BDBDBD;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
   padding: 14px 20px;
   margin-right: 24px;
   font-size: 16px;
-`
-export const CommentCreateScore = styled.div `
+`;
+export const CommentCreateScore = styled.div`
   display: inline-block;
   img {
     cursor: pointer;
   }
-`
-export const CommentScore = styled.div `
+`;
+export const CommentScore = styled.div`
   display: inline-block;
-`
-export const CommentCreateText = styled.textarea `
+`;
+export const CommentCreateText = styled.textarea`
   width: 100%;
   height: 108px;
-  background: #FFFFFF;
+  background: #ffffff;
   border: none;
   padding: 14px 20px;
   resize: none;
-  border-bottom: 1px solid #F2F2F2;
-`
-export const CommentProfile = styled.div `
+  border-bottom: 1px solid #f2f2f2;
+`;
+export const CommentProfile = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
@@ -119,19 +117,19 @@ export const CommentProfile = styled.div `
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    color: #4F4F4F;
+    color: #4f4f4f;
     margin-top: 4px;
   }
   span {
     position: absolute;
-    bottom:  -38px;
+    bottom: -38px;
     font-weight: 400;
     font-size: 12px;
     line-height: 18px;
-    color: #BDBDBD;
+    color: #bdbdbd;
   }
-`
-export const CommentProfileNameScore = styled.div `
+`;
+export const CommentProfileNameScore = styled.div`
   display: flex;
   align-items: center;
   h6 {
@@ -147,8 +145,8 @@ export const CommentProfileNameScore = styled.div `
       margin-right: 0;
     }
   }
-`
-export const CommentTitle = styled.div `
+`;
+export const CommentTitle = styled.div`
   display: flex;
   flex-direction: row;
   margin: 40px 0;
@@ -162,43 +160,40 @@ export const CommentTitle = styled.div `
     font-size: 18px;
     line-height: 24px;
   }
-`
-export const Container = styled.div `
+`;
+export const Container = styled.div`
   width: 1200px;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 60px 100px 100px 100px;
-`
-export const DetailBottom = styled.div `
-  
-  
-`
-export const DetailCenter = styled.div `
+`;
+export const DetailBottom = styled.div``;
+export const DetailCenter = styled.div`
   margin: 100px auto 87px auto;
-`
-export const DetailContents = styled.p `
+`;
+export const DetailContents = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
   margin-bottom: 40px;
-`
-export const DetailImages = styled.img `
+`;
+export const DetailImages = styled.img`
   width: 100%;
   margin-bottom: 40px;
-`
-export const DetailTitle = styled.h3 `
+`;
+export const DetailTitle = styled.h3`
   font-weight: 700;
   font-size: 36px;
   line-height: 52px;
   margin: 80px 0 40px 0;
-`
-export const DetailTop = styled.div `
+`;
+export const DetailTop = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 20px 0;
-`
-export const EditGroup = styled.div `
+`;
+export const EditGroup = styled.div`
   align-items: center;
   img {
     margin-left: 5px;
@@ -206,8 +201,8 @@ export const EditGroup = styled.div `
     height: 24px;
     cursor: pointer;
   }
-`
-export const IconGroup = styled.div `
+`;
+export const IconGroup = styled.div`
   position: relative;
   width: 77px;
   display: flex;
@@ -219,15 +214,16 @@ export const IconGroup = styled.div `
     height: 24px;
     cursor: pointer;
   }
-`
-export const Line = styled.div `
+`;
+export const Line = styled.div`
   width: 100%;
   height: 1px;
-  background: #BDBDBD;
-`
-export const LocationInfo = styled.div `
+  background: #bdbdbd;
+`;
+export const LocationInfo = styled.div`
   position: absolute;
-  right: 10px; bottom: 60px;
+  right: 10px;
+  bottom: 60px;
   width: 376px;
   height: 64px;
   background: rgba(0, 0, 0, 0.6);
@@ -235,14 +231,14 @@ export const LocationInfo = styled.div `
   font-size: 16px;
   line-height: 24px;
   text-align: right;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 8px 16px;
   :before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -14px;
     right: 0;
-    
+
     width: 0;
     height: 0;
     border-top: 7px solid rgba(0, 0, 0, 0.6);
@@ -250,8 +246,8 @@ export const LocationInfo = styled.div `
     border-right: 7px solid rgba(0, 0, 0, 0.6);
     border-left: 7px solid transparent;
   }
-`
-export const Profile = styled.div `
+`;
+export const Profile = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -272,8 +268,8 @@ export const Profile = styled.div `
     line-height: 24px;
     color: #828282;
   }
-`
-export const UpDown = styled.div `
+`;
+export const UpDown = styled.div`
   width: 40px;
   display: flex;
   flex-direction: column;
@@ -289,10 +285,10 @@ export const UpDown = styled.div `
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    color: #FFD600;
+    color: #ffd600;
   }
-`
-export const UpDownGroup = styled.div `
+`;
+export const UpDownGroup = styled.div`
   width: 120px;
   display: flex;
   flex-direction: row;
@@ -304,8 +300,8 @@ export const UpDownGroup = styled.div `
       color: #828282;
     }
   }
-`
-export const Wrapper = styled.div `
+`;
+export const Wrapper = styled.div`
   width: 100%;
-  margin: 80px auto;
-`
+  margin: 80px auto 0px auto;
+`;
