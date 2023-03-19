@@ -1,15 +1,16 @@
 import { useRouter } from "next/router";
 import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 import BoardWriteUI from "./BoardWrite.presenter";
+import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
+import { IPropsBoardWrite, IEditVariables } from "./BoardWrite.types";
+import { CustomMouseEvent } from "../list/BoardList.types";
 import {
   IMutation,
   IMutationCreateBoardArgs,
   IMutationUpdateBoardArgs,
 } from "../../../../commons/types/generated/types";
-import { IPropsBoardWrite, IEditVariables } from "./BoardWrite.types";
-import { CustomMouseEvent } from "../list/BoardList.types";
+import { CREATE_BOARD, UPDATE_BOARD } from "./BoardWrite.queries";
 
 export default function BoardWrite(props: IPropsBoardWrite) {
   const router = useRouter();
@@ -135,7 +136,6 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       modalToggle();
     }
   };
-
   const handleComplete = (data: any) => {
     setUserZoneCode(data.zonecode);
     setUserAddress(data.address);
@@ -152,29 +152,34 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   }
 
   return (
-    <BoardWriteUI
-      writerError={writerError}
-      passwordError={passwordError}
-      titleError={titleError}
-      contentsError={contentsError}
-      onChangeWriter={onChangeWriter}
-      onChangePassword={onChangePassword}
-      onChangeTitle={onChangeTitle}
-      onChangeContents={onChangeContents}
-      onClickSubmit={onClickSubmit}
-      onClickMoveToEdit={onClickMoveToEdit}
-      onClickMoveToList={onClickMoveToList}
-      isEdit={props.isEdit}
-      data={props.data}
-      isModal={isModal}
-      userZoneCode={userZoneCode}
-      userAddress={userAddress}
-      userApartment={userApartment}
-      addressError={addressError}
-      modalToggle={modalToggle}
-      modalCurrentTarget={modalCurrentTarget}
-      handleComplete={handleComplete}
-      onChangeAddress={onChangeAddress}
-    />
+    <>
+      <BoardWriteUI
+        writerError={writerError}
+        passwordError={passwordError}
+        titleError={titleError}
+        contentsError={contentsError}
+        onChangeWriter={onChangeWriter}
+        onChangePassword={onChangePassword}
+        onChangeTitle={onChangeTitle}
+        onChangeContents={onChangeContents}
+        onClickSubmit={onClickSubmit}
+        onClickMoveToEdit={onClickMoveToEdit}
+        onClickMoveToList={onClickMoveToList}
+        isEdit={props.isEdit}
+        data={props.data}
+        userZoneCode={userZoneCode}
+        userAddress={userAddress}
+        userApartment={userApartment}
+        addressError={addressError}
+        onChangeAddress={onChangeAddress}
+        modalToggle={modalToggle}
+      />
+      <PostcodeModalComponent
+        isModal={isModal}
+        modalCurrentTarget={modalCurrentTarget}
+        modalToggle={modalToggle}
+        handleComplete={handleComplete}
+      />
+    </>
   );
 }

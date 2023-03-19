@@ -26,13 +26,10 @@ export interface IPropsBoardWriteUI {
   onClickMoveToList: () => void;
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
-  isModal: boolean;
   userZoneCode: string;
   userAddress: string;
   userApartment: string;
   addressError: string;
-  modalToggle: () => void;
-  modalCurrentTarget: (event: CustomMouseEvent) => void;
-  handleComplete: (data: any) => void;
   onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
+  modalToggle: (event: CustomMouseEvent) => void;
 }

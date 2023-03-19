@@ -1,6 +1,5 @@
 import * as S from "./BoardWrite.style";
 import { IPropsBoardWriteUI } from "./BoardWrite.types";
-import DaumPostcodeEmbed from "react-daum-postcode";
 
 export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (
@@ -66,17 +65,6 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
               우편번호 검색
             </S.AddressBtn>
             <S.Error>{props.addressError}</S.Error>
-            {props.isModal && (
-              <S.Modal onClick={props.modalCurrentTarget}>
-                <S.ModalContainer>
-                  <S.CloseBtn onClick={props.modalToggle}>X</S.CloseBtn>
-                  <DaumPostcodeEmbed
-                    onComplete={props.handleComplete}
-                    autoClose={false}
-                  />
-                </S.ModalContainer>
-              </S.Modal>
-            )}
           </div>
           <S.InputItem type="text" defaultValue={props.userAddress} />
           <S.InputItem type="text" onChange={props.onChangeAddress} />
