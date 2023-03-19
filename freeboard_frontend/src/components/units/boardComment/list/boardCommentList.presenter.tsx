@@ -1,8 +1,6 @@
 import * as S from "./boardCommentList.style";
 import { IBoardCommentListUI } from "./boardCommentList.types";
 import { getMyDate } from "../../../../commons/utils/utils";
-import { Rate } from "antd";
-import { CommentScore } from "./boardCommentList.style";
 
 export default function BoardCommentListUI(props: IBoardCommentListUI) {
   return (
