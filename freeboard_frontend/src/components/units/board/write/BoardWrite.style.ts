@@ -45,7 +45,7 @@ export const AddressGroup = styled.div`
   > div {
     margin-bottom: 16px;
     input {
-      width: 78px;
+      width: 90px;
     }
   }
   > input {

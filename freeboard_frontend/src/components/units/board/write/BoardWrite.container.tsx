@@ -3,7 +3,11 @@ import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
-import { IPropsBoardWrite, IEditVariables } from "./BoardWrite.types";
+import {
+  IPropsBoardWrite,
+  IEditVariables,
+  IEditBoardAddress,
+} from "./BoardWrite.types";
 import { CustomMouseEvent } from "../list/BoardList.types";
 import {
   IMutation,
@@ -19,6 +23,9 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [password, setPassword] = useState<string>("");
   const [title, setTitle] = useState<string>("");
   const [contents, setContents] = useState<string>("");
+  const [zipcode, setZipcode] = useState<string>("");
+  const [address, setAddress] = useState<string>("");
+  const [addressDetail, setAddressDetail] = useState<string>("");
 
   const [writerError, setWriterError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
@@ -27,9 +34,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [addressError, setAddressError] = useState<string>("");
 
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [userZoneCode, setUserZoneCode] = useState<string>("");
-  const [userAddress, setUserAddress] = useState<string>("");
-  const [userApartment, setUserApartment] = useState<string>("");
+  const [editAddressNum, setEditAddressNum] = useState<number>(0);
 
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -42,26 +47,32 @@ export default function BoardWrite(props: IPropsBoardWrite) {
 
   function onChangeWriter(event: ChangeEvent<HTMLInputElement>) {
     setWriter(event.target.value);
-    if (event.target.value !== "") {
+    if (!writer) {
       setWriterError("");
     }
   }
   function onChangePassword(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
-    if (event.target.value !== "") {
+    if (!password) {
       setPasswordError("");
     }
   }
   function onChangeTitle(event: ChangeEvent<HTMLInputElement>) {
     setTitle(event.target.value);
-    if (event.target.value !== "") {
+    if (!title) {
       setTitleError("");
     }
   }
   function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
     setContents(event.target.value);
-    if (event.target.value !== "") {
+    if (!contents) {
       setContentsError("");
+    }
+  }
+  function onChangeAddress(event: ChangeEvent<HTMLInputElement>) {
+    setAddressDetail(event.target.value);
+    if (!zipcode && !address && addressDetail) {
+      setAddressError("");
     }
   }
 
@@ -78,7 +89,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     if (!contents) {
       setContentsError("🚫 내용을 입력해주세요! 🚫");
     }
-    if (!userApartment) {
+    if (!zipcode && !address && addressDetail) {
       setAddressError("🚫 주소를 입력해주세요! 🚫");
     }
     if (writer && password && title && contents) {
@@ -91,9 +102,9 @@ export default function BoardWrite(props: IPropsBoardWrite) {
               title: title,
               contents: contents,
               boardAddress: {
-                zipcode: userZoneCode,
-                address: userAddress,
-                addressDetail: userApartment,
+                zipcode: zipcode,
+                address: address,
+                addressDetail: addressDetail,
               },
             },
           },
@@ -111,11 +122,15 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       setPasswordError("🚫 비밀번호를 입력해주세요! 🚫");
     }
     if (password) {
-      alert("게시글이 수정되었습니다! 🥳");
+      const editBoardAddress: IEditBoardAddress = {};
+      if (zipcode) editBoardAddress.zipcode = zipcode;
+      if (address) editBoardAddress.address = address;
+      if (addressDetail) editBoardAddress.addressDetail = addressDetail;
 
       const editVariables: IEditVariables = {};
       if (title) editVariables.title = title;
       if (contents) editVariables.contents = contents;
+      if (editBoardAddress) editVariables.boardAddress = editBoardAddress;
 
       const result = await updateBoard({
         variables: {
@@ -124,6 +139,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
           boardId: String(router.query._id),
         },
       });
+      alert("게시글이 수정되었습니다! 🥳");
       router.push(`/boards/${result.data?.updateBoard._id}`);
     }
   };
@@ -135,25 +151,19 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const modalToggle = () => {
     setIsModal((prev: boolean) => !prev);
   };
+
   const modalCurrentTarget = (event: CustomMouseEvent) => {
     if (isModal && event.target === event.currentTarget) {
       modalToggle();
     }
   };
-  const handleComplete = (data: any) => {
-    setUserZoneCode(data.zonecode);
-    setUserAddress(data.address);
-    if (!userZoneCode && !userAddress) {
-      modalToggle();
-    }
-  };
 
-  function onChangeAddress(event: ChangeEvent<HTMLInputElement>) {
-    setUserApartment(event.target.value);
-    if (event.target.value !== "") {
-      setAddressError("");
-    }
-  }
+  const handleComplete = (data: any) => {
+    setZipcode(data.zonecode);
+    setAddress(data.address);
+    setEditAddressNum(editAddressNum + 1);
+    modalToggle();
+  };
 
   return (
     <>
@@ -162,21 +172,22 @@ export default function BoardWrite(props: IPropsBoardWrite) {
         passwordError={passwordError}
         titleError={titleError}
         contentsError={contentsError}
+        addressError={addressError}
+        zipcode={zipcode}
+        address={address}
+        editAddressNum={editAddressNum}
+        addressDetail={addressDetail}
         onChangeWriter={onChangeWriter}
         onChangePassword={onChangePassword}
         onChangeTitle={onChangeTitle}
         onChangeContents={onChangeContents}
+        onChangeAddress={onChangeAddress}
+        modalToggle={modalToggle}
         onClickSubmit={onClickSubmit}
         onClickMoveToEdit={onClickMoveToEdit}
         onClickMoveToList={onClickMoveToList}
         isEdit={props.isEdit}
         data={props.data}
-        userZoneCode={userZoneCode}
-        userAddress={userAddress}
-        userApartment={userApartment}
-        addressError={addressError}
-        onChangeAddress={onChangeAddress}
-        modalToggle={modalToggle}
       />
       <PostcodeModalComponent
         isModal={isModal}

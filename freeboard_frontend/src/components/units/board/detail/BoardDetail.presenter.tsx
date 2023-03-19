@@ -3,7 +3,6 @@ import { getMyDate } from "../../../../commons/utils/utils";
 import { IPropsBoardDetailUI } from "./BoardDetail.types";
 
 export default function BoardDetailUI(props: IPropsBoardDetailUI) {
-  console.log(props.fetchBoard);
   return (
     <S.Wrapper>
       <S.Container>

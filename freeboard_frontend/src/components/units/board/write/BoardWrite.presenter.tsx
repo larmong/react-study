@@ -58,16 +58,35 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           <div>
             <S.InputItem
               type="text"
-              defaultValue={props.userZoneCode}
-              placeholder="07250"
+              defaultValue={
+                props.data && props.isEdit && props.editAddressNum === 0
+                  ? String(props.data?.fetchBoard.boardAddress?.zipcode)
+                  : props.zipcode
+              }
+              placeholder="우편번호"
             />
             <S.AddressBtn onClick={props.modalToggle}>
               우편번호 검색
             </S.AddressBtn>
             <S.Error>{props.addressError}</S.Error>
           </div>
-          <S.InputItem type="text" defaultValue={props.userAddress} />
-          <S.InputItem type="text" onChange={props.onChangeAddress} />
+          <S.InputItem
+            type="text"
+            defaultValue={
+              props.data && props.isEdit && props.editAddressNum === 0
+                ? String(props.data?.fetchBoard?.boardAddress?.address)
+                : props.address
+            }
+          />
+          <S.InputItem
+            type="text"
+            onChange={props.onChangeAddress}
+            defaultValue={
+              props.data && props.isEdit && props.editAddressNum === 0
+                ? String(props.data?.fetchBoard?.boardAddress?.addressDetail)
+                : ""
+            }
+          />
         </S.AddressGroup>
         <S.Group>
           <S.InputTitle>유튜브</S.InputTitle>
