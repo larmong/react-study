@@ -12,7 +12,6 @@ import { DELETE_BOARD, FETCH_BOARD } from "./BoardDetail.queries";
 
 export default function BoardDetail() {
   const router = useRouter();
-  const [locationInfo, setLocationInfo] = useState<boolean>(false);
 
   const [deleteBoard] = useMutation<
     Pick<IMutation, "deleteBoard">,
@@ -41,15 +40,16 @@ export default function BoardDetail() {
     router.push(`/boards`);
   };
 
-  const onClickLocation = () => {
-    setLocationInfo(!locationInfo);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
+  const onMouseOverLocation = () => {
+    setIsHovering((prev) => !prev);
   };
 
   return (
     <BoardDetailUI
       fetchBoard={fetchBoard}
-      locationInfo={locationInfo}
-      onClickLocation={onClickLocation}
+      isHovering={isHovering}
+      onMouseOverLocation={onMouseOverLocation}
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}

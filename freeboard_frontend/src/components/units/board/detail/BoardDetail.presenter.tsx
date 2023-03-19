@@ -3,6 +3,7 @@ import { getMyDate } from "../../../../commons/utils/utils";
 import { IPropsBoardDetailUI } from "./BoardDetail.types";
 
 export default function BoardDetailUI(props: IPropsBoardDetailUI) {
+  console.log(props.fetchBoard);
   return (
     <S.Wrapper>
       <S.Container>
@@ -22,15 +23,19 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
           <S.IconGroup>
             <img src="/share.svg" alt="공유아이콘" />
             <img
-              onClick={props.onClickLocation}
+              onMouseOver={props.onMouseOverLocation}
+              onMouseOut={props.onMouseOverLocation}
               src="/location.svg"
               alt="위치아이콘"
             />
-            {props?.locationInfo == true ? (
+            {props.isHovering ? (
               <S.LocationInfo>
-                서울특별시 영등포구 양산로 200
-                <br />
-                (영등포동5가, 영등포시장역) 영등포 타임스퀘어 2층
+                <p>
+                  ({props.fetchBoard?.fetchBoard?.boardAddress?.zipcode}) &nbsp;
+                  {props.fetchBoard?.fetchBoard?.boardAddress?.address}
+                  <br />
+                  {props.fetchBoard?.fetchBoard?.boardAddress?.addressDetail}
+                </p>
               </S.LocationInfo>
             ) : null}
           </S.IconGroup>
@@ -44,11 +49,11 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         <S.UpDownGroup>
           <S.UpDown>
             <img src="/up.svg" alt="좋아요" />
-            <span>1920</span>
+            <span>{props.fetchBoard?.fetchBoard?.likeCount}</span>
           </S.UpDown>
           <S.UpDown>
             <img src="/down.svg" alt="싫어요" />
-            <span>231</span>
+            <span>{props.fetchBoard?.fetchBoard?.dislikeCount}</span>
           </S.UpDown>
         </S.UpDownGroup>
       </S.Container>

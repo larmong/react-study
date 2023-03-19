@@ -224,15 +224,18 @@ export const LocationInfo = styled.div`
   position: absolute;
   right: 10px;
   bottom: 60px;
-  width: 376px;
+  width: auto;
   height: 64px;
   background: rgba(0, 0, 0, 0.6);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   text-align: right;
   color: #ffffff;
   padding: 8px 16px;
+  p {
+    white-space: nowrap;
+  }
   :before {
     content: "";
     position: absolute;
