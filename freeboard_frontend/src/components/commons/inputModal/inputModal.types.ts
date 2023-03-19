@@ -5,10 +5,10 @@ export type CustomMouseEvent = MouseEvent<HTMLElement>;
 export interface IInputModalComponentUI {
   isModal: boolean;
   modalCurrentTarget: (event: CustomMouseEvent) => void;
-  modalToggle: () => void;
+  modalToggle: (event: CustomMouseEvent) => void;
   modalTitle: string;
   inputType: string;
   inputPlaceholder: string;
   onChangeInputValue: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClickModalConfirm: (event: CustomMouseEvent) => void;
+  onClickModalConfirm: () => void;
 }

@@ -37,27 +37,29 @@ export default function BoardCommentList() {
   };
   const [isModal, setIsModal] = useState<boolean>(false);
   const [userPassword, setUserPassword] = useState<string>("");
+  const [commentId, setCommentId] = useState<string>("");
 
   function onChangeInputValue(event: ChangeEvent<HTMLInputElement>) {
     setUserPassword(event.target.value);
   }
 
-  const modalToggle = () => {
+  const modalToggle = (event: CustomMouseEvent) => {
+    setCommentId(event.currentTarget?.id);
     setIsModal((prev: boolean) => !prev);
   };
 
   const modalCurrentTarget = (event: CustomMouseEvent) => {
     if (isModal && event.target === event.currentTarget) {
-      modalToggle();
+      setIsModal((prev: boolean) => !prev);
     }
   };
 
-  const onClickDeleteComment = async (event: CustomMouseEvent) => {
+  const onClickDeleteComment = async () => {
     try {
       await deleteBoardComment({
         variables: {
           password: String(userPassword),
-          boardCommentId: (event.currentTarget as Element).id,
+          boardCommentId: commentId,
         },
         refetchQueries: [
           {
@@ -67,13 +69,17 @@ export default function BoardCommentList() {
         ],
       });
       alert("댓글이 삭제되었습니다! 😶‍🌫");
+      setIsModal((prev: boolean) => !prev);
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <>
-      <BoardCommentListUI fetchBoardComments={fetchBoardComments} />
+      <BoardCommentListUI
+        fetchBoardComments={fetchBoardComments}
+        modalToggle={modalToggle}
+      />
       <InputModalComponentUI
         isModal={isModal}
         modalCurrentTarget={modalCurrentTarget}

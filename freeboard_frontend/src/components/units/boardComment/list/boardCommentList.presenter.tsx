@@ -19,7 +19,7 @@ export default function BoardCommentListUI(props: IBoardCommentListUI) {
           <S.EditGroup>
             <img src="/pencil.svg" alt="수정" />
             <img
-              onClick={props.onClickDeleteComment}
+              onClick={props.modalToggle}
               id={el._id}
               src="/clear.svg"
               alt="삭제"
