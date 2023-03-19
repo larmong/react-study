@@ -12,6 +12,7 @@ export const FETCH_BOARD = gql`
       _id
       writer
       title
+      youtubeUrl
       contents
       createdAt
       boardAddress {

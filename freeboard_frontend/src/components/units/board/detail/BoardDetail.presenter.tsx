@@ -44,6 +44,9 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         <S.DetailImages src="/sample.png" alt="샘플이미지" />
         <S.DetailContents>
           {props.fetchBoard?.fetchBoard?.contents}
+          {props.fetchBoard?.fetchBoard?.youtubeUrl && (
+            <S.Youtube url={props.fetchBoard?.fetchBoard?.youtubeUrl} rel={0} />
+          )}
         </S.DetailContents>
         <S.UpDownGroup>
           <S.UpDown>

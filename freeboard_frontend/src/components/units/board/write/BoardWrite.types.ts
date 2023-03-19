@@ -33,6 +33,7 @@ export interface IPropsBoardWriteUI {
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   modalToggle: (event: CustomMouseEvent) => void;
   onClickSubmit: () => void;
   onClickMoveToEdit: () => void;

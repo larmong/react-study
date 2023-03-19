@@ -94,7 +94,14 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
         </S.AddressGroup>
         <S.Group>
           <S.InputTitle>유튜브</S.InputTitle>
-          <S.InputItem type="text" placeholder="링크를 복사해주세요." />
+          <S.InputItem
+            type="text"
+            placeholder="링크를 복사해주세요."
+            onChange={props.onChangeYoutubeUrl}
+            defaultValue={
+              (props.data && props.data?.fetchBoard.youtubeUrl) || ""
+            }
+          />
         </S.Group>
         <S.Group>
           <S.InputTitle>사진 첨부</S.InputTitle>

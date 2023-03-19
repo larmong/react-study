@@ -22,6 +22,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [zipcode, setZipcode] = useState<string>("");
   const [address, setAddress] = useState<string>("");
   const [addressDetail, setAddressDetail] = useState<string>("");
+  const [youtubeUrl, setYoutubeUrl] = useState<string>("");
 
   const [writerError, setWriterError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
@@ -71,6 +72,9 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       setAddressError("");
     }
   }
+  function onChangeYoutubeUrl(event: ChangeEvent<HTMLInputElement>) {
+    setYoutubeUrl(event.target.value);
+  }
 
   const onClickSubmit = async () => {
     if (!writer) {
@@ -97,6 +101,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
               password: password,
               title: title,
               contents: contents,
+              youtubeUrl: youtubeUrl,
               boardAddress: {
                 zipcode: zipcode,
                 address: address,
@@ -114,13 +119,27 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   };
 
   const onClickMoveToEdit = async () => {
+    if (
+      !title &&
+      !contents &&
+      !youtubeUrl &&
+      !address &&
+      !addressDetail &&
+      !zipcode
+    ) {
+      alert("🚫 수정한 내용이 없습니다. 🚫");
+      return;
+    }
     if (!password) {
       setPasswordError("🚫 비밀번호를 입력해주세요! 🚫");
+      alert("🚫 비밀번호를 입력해주세요! 🚫");
+      return;
     }
     if (password) {
       const editVariables: IEditVariables = {};
       if (title) editVariables.title = title;
       if (contents) editVariables.contents = contents;
+      if (youtubeUrl) editVariables.contents = youtubeUrl;
       if (zipcode || address || addressDetail) {
         editVariables.boardAddress = {};
         if (zipcode) editVariables.boardAddress.zipcode = zipcode;
@@ -178,6 +197,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
         onChangeTitle={onChangeTitle}
         onChangeContents={onChangeContents}
         onChangeAddress={onChangeAddress}
+        onChangeYoutubeUrl={onChangeYoutubeUrl}
         modalToggle={modalToggle}
         onClickSubmit={onClickSubmit}
         onClickMoveToEdit={onClickMoveToEdit}
