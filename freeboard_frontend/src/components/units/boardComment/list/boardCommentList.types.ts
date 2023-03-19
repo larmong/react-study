@@ -5,5 +5,4 @@ export type CustomMouseEvent = MouseEvent<HTMLElement>;
 
 export interface IBoardCommentListUI {
   fetchBoardComments?: Pick<IQuery, "fetchBoardComments">;
-  onClickDeleteComment: (event: CustomMouseEvent) => void;
 }

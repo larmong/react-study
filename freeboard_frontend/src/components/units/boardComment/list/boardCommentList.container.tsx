@@ -1,7 +1,10 @@
 import { useRouter } from "next/router";
+import { ChangeEvent, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import BoardCommentListUI from "./boardCommentList.presenter";
+import InputModalComponentUI from "../../../commons/inputModal/inputModal.presenter";
 import { CustomMouseEvent } from "./boardCommentList.types";
+
 import {
   IQuery,
   IMutation,
@@ -27,8 +30,29 @@ export default function BoardCommentList() {
     variables: { boardId: String(router.query._id) },
   });
 
+  const modalContents = {
+    modalTitle: "비밀번호를 입력해주세요 🤨",
+    inputType: "password",
+    inputPlaceholder: "비밀번호를 입력해주세요.",
+  };
+  const [isModal, setIsModal] = useState<boolean>(false);
+  const [userPassword, setUserPassword] = useState<string>("");
+
+  function onChangeInputValue(event: ChangeEvent<HTMLInputElement>) {
+    setUserPassword(event.target.value);
+  }
+
+  const modalToggle = () => {
+    setIsModal((prev: boolean) => !prev);
+  };
+
+  const modalCurrentTarget = (event: CustomMouseEvent) => {
+    if (isModal && event.target === event.currentTarget) {
+      modalToggle();
+    }
+  };
+
   const onClickDeleteComment = async (event: CustomMouseEvent) => {
-    const userPassword = prompt("비밀번호를 입력해주세요 🤨");
     try {
       await deleteBoardComment({
         variables: {
@@ -47,11 +71,19 @@ export default function BoardCommentList() {
       console.log(error);
     }
   };
-
   return (
-    <BoardCommentListUI
-      fetchBoardComments={fetchBoardComments}
-      onClickDeleteComment={onClickDeleteComment}
-    />
+    <>
+      <BoardCommentListUI fetchBoardComments={fetchBoardComments} />
+      <InputModalComponentUI
+        isModal={isModal}
+        modalCurrentTarget={modalCurrentTarget}
+        modalToggle={modalToggle}
+        modalTitle={modalContents.modalTitle}
+        inputType={modalContents.inputType}
+        inputPlaceholder={modalContents.inputPlaceholder}
+        onChangeInputValue={onChangeInputValue}
+        onClickModalConfirm={onClickDeleteComment}
+      />
+    </>
   );
 }

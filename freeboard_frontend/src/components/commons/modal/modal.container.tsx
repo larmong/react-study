@@ -1,20 +1,12 @@
 import ModalComponentUI from "./modal.presenter";
-import { useState } from "react";
-import { CustomMouseEvent } from "../../units/board/list/BoardList.types";
+import { IModalComponentUI } from "./modal.types";
 
-export default function BoardCommentList() {
-  const [isModal, setIsModal] = useState<boolean>(true);
-  const [modalContents, setModalContents] = useState<string>("");
-
-  const modalToggle = () => {
-    setIsModal((prev: boolean) => !prev);
-  };
-  const modalCurrentTarget = (event: CustomMouseEvent) => {
-    if (isModal && event.target === event.currentTarget) {
-      modalToggle();
-    }
-  };
-
+export default function ModalComponent({
+  isModal,
+  modalContents,
+  modalToggle,
+  modalCurrentTarget,
+}: IModalComponentUI) {
   return (
     <ModalComponentUI
       isModal={isModal}
@@ -24,3 +16,15 @@ export default function BoardCommentList() {
     />
   );
 }
+
+// const [isModal, setIsModal] = useState<boolean>(true);
+// const [modalContents, setModalContents] = useState<string>("");
+//
+// const modalToggle = () => {
+//   setIsModal((prev: boolean) => !prev);
+// };
+// const modalCurrentTarget = (event: CustomMouseEvent) => {
+//   if (isModal && event.target === event.currentTarget) {
+//     modalToggle();
+//   }
+// };
