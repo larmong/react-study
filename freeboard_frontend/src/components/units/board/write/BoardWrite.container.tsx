@@ -82,8 +82,6 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       setAddressError("🚫 주소를 입력해주세요! 🚫");
     }
     if (writer && password && title && contents) {
-      alert("게시글이 등록되었습니다! 🥳");
-
       try {
         const result = await createBoard({
           variables: {
@@ -92,9 +90,15 @@ export default function BoardWrite(props: IPropsBoardWrite) {
               password: password,
               title: title,
               contents: contents,
+              boardAddress: {
+                zipcode: userZoneCode,
+                address: userAddress,
+                addressDetail: userApartment,
+              },
             },
           },
         });
+        alert("게시글이 등록되었습니다! 🥳");
         router.push(`/boards/${result.data?.createBoard._id}`);
       } catch (error) {
         console.log(error);
