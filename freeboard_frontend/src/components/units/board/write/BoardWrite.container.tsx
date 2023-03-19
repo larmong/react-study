@@ -3,11 +3,7 @@ import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
-import {
-  IPropsBoardWrite,
-  IEditVariables,
-  IEditBoardAddress,
-} from "./BoardWrite.types";
+import { IPropsBoardWrite, IEditVariables } from "./BoardWrite.types";
 import { CustomMouseEvent } from "../list/BoardList.types";
 import {
   IMutation,
@@ -34,7 +30,6 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [addressError, setAddressError] = useState<string>("");
 
   const [isModal, setIsModal] = useState<boolean>(false);
-  const [editAddressNum, setEditAddressNum] = useState<number>(0);
 
   const [createBoard] = useMutation<
     Pick<IMutation, "createBoard">,
@@ -51,6 +46,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       setWriterError("");
     }
   }
+
   function onChangePassword(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
     if (!password) {
@@ -122,15 +118,16 @@ export default function BoardWrite(props: IPropsBoardWrite) {
       setPasswordError("🚫 비밀번호를 입력해주세요! 🚫");
     }
     if (password) {
-      const editBoardAddress: IEditBoardAddress = {};
-      if (zipcode) editBoardAddress.zipcode = zipcode;
-      if (address) editBoardAddress.address = address;
-      if (addressDetail) editBoardAddress.addressDetail = addressDetail;
-
       const editVariables: IEditVariables = {};
       if (title) editVariables.title = title;
       if (contents) editVariables.contents = contents;
-      if (editBoardAddress) editVariables.boardAddress = editBoardAddress;
+      if (zipcode || address || addressDetail) {
+        editVariables.boardAddress = {};
+        if (zipcode) editVariables.boardAddress.zipcode = zipcode;
+        if (address) editVariables.boardAddress.address = address;
+        if (addressDetail)
+          editVariables.boardAddress.addressDetail = addressDetail;
+      }
 
       const result = await updateBoard({
         variables: {
@@ -161,13 +158,13 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const handleComplete = (data: any) => {
     setZipcode(data.zonecode);
     setAddress(data.address);
-    setEditAddressNum(editAddressNum + 1);
     modalToggle();
   };
 
   return (
     <>
       <BoardWriteUI
+        writer={writer}
         writerError={writerError}
         passwordError={passwordError}
         titleError={titleError}
@@ -175,7 +172,6 @@ export default function BoardWrite(props: IPropsBoardWrite) {
         addressError={addressError}
         zipcode={zipcode}
         address={address}
-        editAddressNum={editAddressNum}
         addressDetail={addressDetail}
         onChangeWriter={onChangeWriter}
         onChangePassword={onChangePassword}

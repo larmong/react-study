@@ -11,15 +11,13 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
             <S.InputTitle>
               작성자<S.Error>{props.writerError}</S.Error>
             </S.InputTitle>
-            {props.isEdit ? (
-              <S.DisabledInput>{props.data?.fetchBoard.writer}</S.DisabledInput>
-            ) : (
-              <S.InputItem
-                type="text"
-                placeholder="이름을 적어주세요."
-                onChange={props.onChangeWriter}
-              />
-            )}
+            <S.InputItem
+              type="text"
+              placeholder="이름을 적어주세요."
+              onChange={props.onChangeWriter}
+              defaultValue={props.data?.fetchBoard.writer || ""}
+              readOnly={!!props.data?.fetchBoard.writer}
+            />
           </S.Twin>
           <S.Twin>
             <S.InputTitle>
@@ -58,10 +56,12 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           <div>
             <S.InputItem
               type="text"
-              defaultValue={
-                props.data && props.isEdit && props.editAddressNum === 0
-                  ? String(props.data?.fetchBoard.boardAddress?.zipcode)
-                  : props.zipcode
+              readOnly
+              value={
+                props.zipcode ||
+                (props.data &&
+                  String(props.data?.fetchBoard.boardAddress?.zipcode)) ||
+                ""
               }
               placeholder="우편번호"
             />
@@ -72,20 +72,24 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           </div>
           <S.InputItem
             type="text"
-            defaultValue={
-              props.data && props.isEdit && props.editAddressNum === 0
-                ? String(props.data?.fetchBoard?.boardAddress?.address)
-                : props.address
+            readOnly
+            value={
+              props.address ||
+              (props.data &&
+                String(props.data?.fetchBoard.boardAddress?.address)) ||
+              ""
             }
+            placeholder="주소"
           />
           <S.InputItem
             type="text"
             onChange={props.onChangeAddress}
             defaultValue={
-              props.data && props.isEdit && props.editAddressNum === 0
-                ? String(props.data?.fetchBoard?.boardAddress?.addressDetail)
-                : ""
+              (props.data &&
+                String(props.data?.fetchBoard?.boardAddress?.addressDetail)) ||
+              ""
             }
+            placeholder="상세주소"
           />
         </S.AddressGroup>
         <S.Group>

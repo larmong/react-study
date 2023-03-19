@@ -7,15 +7,10 @@ export interface IPropsBoardWrite {
   data?: Pick<IQuery, "fetchBoard">;
 }
 
-export interface IEditBoardAddress {
-  zipcode?: string;
-  address?: string;
-  addressDetail?: string;
-}
-
 export interface IEditVariables {
   title?: string;
   contents?: string;
+  youtubeUrl?: string;
   boardAddress?: {
     zipcode?: string;
     address?: string;
@@ -24,6 +19,7 @@ export interface IEditVariables {
 }
 
 export interface IPropsBoardWriteUI {
+  writer: string;
   writerError: string;
   passwordError: string;
   titleError: string;
@@ -32,8 +28,6 @@ export interface IPropsBoardWriteUI {
   zipcode: string;
   address: string;
   addressDetail: string;
-  editAddressNum: number;
-
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
