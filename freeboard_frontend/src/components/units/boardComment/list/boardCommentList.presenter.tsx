@@ -7,7 +7,7 @@ export default function BoardCommentListUI(props: IBoardCommentListUI) {
     <>
       {props.fetchBoardComments?.fetchBoardComments.map((el) => (
         <S.Comment key={el._id}>
-          <S.ProfilePicture src="/profile.svg" alt="프로필사진" />
+          <S.ProfilePicture src="/images/profile.svg" alt="프로필사진" />
           <S.ProfileContents>
             <S.CommentGroup>
               <S.CommentWrite>{el.writer}</S.CommentWrite>
@@ -17,11 +17,11 @@ export default function BoardCommentListUI(props: IBoardCommentListUI) {
             <S.CommentDate>{getMyDate(el.createdAt)}</S.CommentDate>
           </S.ProfileContents>
           <S.EditGroup>
-            <img src="/pencil.svg" alt="수정" />
+            <img src="/images/pencil.svg" alt="수정" />
             <img
               onClick={props.modalToggle}
               id={el._id}
-              src="/clear.svg"
+              src="/images/clear.svg"
               alt="삭제"
             />
           </S.EditGroup>

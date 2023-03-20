@@ -28,7 +28,7 @@ export const CommentGroup = styled.div`
   align-items: center;
 `;
 export const CommentWrite = styled.h6`
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   line-height: 24px;
   margin-right: 16px;

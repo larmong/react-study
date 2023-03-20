@@ -8,7 +8,7 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
       <S.Container>
         <S.DetailTop>
           <S.Profile>
-            <img src="/profile.svg" alt="프로필사진" />
+            <img src="/images/profile.svg" alt="프로필사진" />
             <div>
               <h6>{props.fetchBoard?.fetchBoard?.writer}</h6>
               <p>
@@ -20,11 +20,11 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
             </div>
           </S.Profile>
           <S.IconGroup>
-            <img src="/share.svg" alt="공유아이콘" />
+            <img src="/images/share.svg" alt="공유아이콘" />
             <img
               onMouseOver={props.onMouseOverLocation}
               onMouseOut={props.onMouseOverLocation}
-              src="/location.svg"
+              src="/images/location.svg"
               alt="위치아이콘"
             />
             {props.isHovering ? (
@@ -41,7 +41,7 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         </S.DetailTop>
         <S.Line></S.Line>
         <S.DetailTitle>{props.fetchBoard?.fetchBoard?.title}</S.DetailTitle>
-        <S.DetailImages src="/sample.png" alt="샘플이미지" />
+        <S.DetailImages src="/images/sample.png" alt="샘플이미지" />
         <S.DetailContents>
           {props.fetchBoard?.fetchBoard?.contents}
           {props.fetchBoard?.fetchBoard?.youtubeUrl && (
@@ -50,11 +50,11 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         </S.DetailContents>
         <S.UpDownGroup>
           <S.UpDown>
-            <img src="/up.svg" alt="좋아요" />
+            <img src="/images/up.svg" alt="좋아요" />
             <span>{props.fetchBoard?.fetchBoard?.likeCount}</span>
           </S.UpDown>
           <S.UpDown>
-            <img src="/down.svg" alt="싫어요" />
+            <img src="/images/down.svg" alt="싫어요" />
             <span>{props.fetchBoard?.fetchBoard?.dislikeCount}</span>
           </S.UpDown>
         </S.UpDownGroup>

@@ -10,13 +10,16 @@ export default function BoardListUI(props: IPropsBoardListUI) {
         <S.CardContainer>
           {props.fetchBoardsOfTheBest?.fetchBoardsOfTheBest.map((el, index) => (
             <S.BestBoardCard key={el._id}>
-              <img src={`/bestSample${index + 1}.png`} alt="프리뷰이미지" />
+              <img
+                src={`/images/bestSample${index + 1}.png`}
+                alt="프리뷰이미지"
+              />
               <S.BestBoardCardContents>
                 <h5>{el.title}</h5>
                 <div>
                   <S.BestBoardCardProfile>
                     <div>
-                      <img src="/profile.svg" alt="프로필사진" />
+                      <img src="/images/profile.svg" alt="프로필사진" />
                       <h6>{el.writer}</h6>
                     </div>
                     <p>
@@ -24,7 +27,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
                     </p>
                   </S.BestBoardCardProfile>
                   <S.BestBoardCardUp>
-                    <img src="/up.svg" alt="좋아요" />
+                    <img src="/images/up.svg" alt="좋아요" />
                     <span>{el.likeCount}</span>
                   </S.BestBoardCardUp>
                 </div>
@@ -34,7 +37,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
         </S.CardContainer>
         <S.SearchItemGroup>
           <S.SearchItemBox>
-            <S.SearchIcon src="/search.svg" alt="검색" />
+            <S.SearchIcon src="/images/search.svg" alt="검색" />
             <S.SearchItem type="text" placeholder="제목을 검색해주세요." />
           </S.SearchItemBox>
           <S.DateItem type="text" placeholder="YYYY. MM.DD ~ YYYY. MM.DD" />
@@ -73,7 +76,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
             <S.PageNextBtn></S.PageNextBtn>
           </S.PagenationContainer>
           <S.NewBoardBtn onClick={props.onClickMoveToNew}>
-            <img src="/create.svg" alt="게시물등록" />
+            <img src="/images/create.svg" alt="게시물등록" />
             게시물 등록하기
           </S.NewBoardBtn>
         </S.BoardListBottom>

@@ -5,7 +5,7 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUI) {
   return (
     <>
       <S.CommentTitle>
-        <img src="/comment.svg" alt="댓글아이콘" />
+        <img src="/images/comment.svg" alt="댓글아이콘" />
         <span>댓글</span>
       </S.CommentTitle>
       <S.CommentCreate>

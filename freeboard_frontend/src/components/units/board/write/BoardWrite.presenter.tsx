@@ -107,15 +107,15 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
           <S.InputTitle>사진 첨부</S.InputTitle>
           <S.UploadList>
             <S.UploadImg>
-              <img src="/upload.svg" alt="플러스" />
+              <img src="/images/upload.svg" alt="플러스" />
               <span>Upload</span>
             </S.UploadImg>
             <S.UploadImg>
-              <img src="/upload.svg" alt="플러스" />
+              <img src="/images/upload.svg" alt="플러스" />
               <span>Upload</span>
             </S.UploadImg>
             <S.UploadImg>
-              <img src="/upload.svg" alt="플러스" />
+              <img src="/images/upload.svg" alt="플러스" />
               <span>Upload</span>
             </S.UploadImg>
           </S.UploadList>
