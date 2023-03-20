@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Navigation = styled.section`
+export const Navigation = styled.nav`
   width: 100%;
   background: #ffd600;
 `;
