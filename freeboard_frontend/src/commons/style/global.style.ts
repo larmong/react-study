@@ -24,15 +24,15 @@ export const GlobalStyle = css`
     margin: 0;
     box-sizing: border-box;
   }
-  body {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
   ul {
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+  button {
+    border: 0;
+    cursor: pointer;
+    background: #fff;
   }
   button:focus,
   input:focus,

@@ -28,13 +28,10 @@ export const CloseBtn = styled.button`
   position: absolute;
   right: 20px;
   top: 20px;
-  border: 0;
-  background: #fff;
   border-radius: 3px;
   color: #888;
   padding: 3px 7px;
   font-size: 18px;
-  cursor: pointer;
   :hover {
     background: #eee;
     color: #555;
@@ -67,9 +64,7 @@ export const ModalConfirm = styled.button`
   width: 120px;
   height: 35px;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
-  border: none;
   background: #1677ff;
   color: #fff;
 `;

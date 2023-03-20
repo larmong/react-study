@@ -9,7 +9,6 @@ export const BorderBtn = styled.button`
   text-align: center;
   width: 179px;
   height: 45px;
-  background: #ffffff;
   border: 1px solid #bdbdbd;
   margin-right: 24px;
 `;
@@ -22,7 +21,6 @@ export const BtnGroup = styled.div`
   }
 `;
 export const Container = styled.div`
-  width: 1200px;
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 60px 100px 100px 100px;

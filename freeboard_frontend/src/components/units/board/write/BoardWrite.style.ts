@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import DaumPostcodeEmbed from "react-daum-postcode";
 
 export const ActivateBtn = styled.button`
-  border: none;
   width: 179px;
   height: 52px;
   background: #ffd600;
@@ -11,10 +10,8 @@ export const ActivateBtn = styled.button`
   line-height: 23px;
   text-align: center;
   color: #000000;
-  cursor: pointer;
 `;
 export const DisabledBtn = styled.button`
-  border: none;
   width: 179px;
   height: 52px;
   background: #bdbdbd;
@@ -23,19 +20,15 @@ export const DisabledBtn = styled.button`
   line-height: 23px;
   text-align: center;
   color: #4f4f4f;
-  cursor: pointer;
   margin-right: 24px;
 `;
 export const AddressBtn = styled.button`
-  border: none;
   width: 124px;
   height: 52px;
   background: #000000;
   font-weight: 500;
   font-size: 16px;
-  color: #ffffff;
   margin-left: 16px;
-  cursor: pointer;
 `;
 export const AddressGroup = styled.div`
   display: flex;
@@ -58,7 +51,6 @@ export const BtnCenter = styled.div`
   justify-content: center;
 `;
 export const Container = styled.div`
-  width: 1200px;
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   padding: 60px 100px 100px 100px;

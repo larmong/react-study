@@ -25,13 +25,10 @@ export const CloseBtn = styled.button`
   position: absolute;
   right: 20px;
   top: 20px;
-  border: 0;
-  background: #fff;
   border-radius: 3px;
   color: #888;
   padding: 3px 7px;
   font-size: 18px;
-  cursor: pointer;
   :hover {
     background: #eee;
     color: #555;
