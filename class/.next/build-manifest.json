@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/12-07-modal-custom-address-refactoring": [
+    "/12-02-library-star": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/12-07-modal-custom-address-refactoring.js"
+      "static/chunks/pages/12-02-library-star.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
