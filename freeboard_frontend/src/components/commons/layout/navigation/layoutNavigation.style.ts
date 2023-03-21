@@ -2,12 +2,8 @@ import styled from "@emotion/styled";
 
 export const Navigation = styled.nav`
   width: 100%;
-  background: #ffd600;
-`;
-export const Container = styled.div`
-  width: 1200px;
   height: 64px;
-  margin: 0 auto;
+  background: #ffd600;
 `;
 export const MenuGroup = styled.ul`
   height: 100%;
