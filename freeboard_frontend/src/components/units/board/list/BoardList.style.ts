@@ -223,47 +223,49 @@ export const RowTitle = styled.div`
 `;
 export const ColumnTitle = styled.p`
   cursor: pointer;
-  display: inline-flex;
+  width: 640px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const ColumnWriter = styled.p`
   cursor: pointer;
-  display: inline-flex;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 export const Wrapper = styled.div`
   width: 100%;
   margin: 80px auto;
 `;
 
-// pagenation
 export const PagenationContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  height: 24px;
+  align-items: center;
   justify-content: center;
 `;
-export const Pagenation = styled.ul`
+export const Pagenation = styled.div`
   display: flex;
-  flex-direction: row;
   align-items: center;
-  li {
-    display: flex;
-    width: 10px;
-    height: 16px;
-    font-weight: 400;
+  span {
+    width: auto;
     font-size: 16px;
+    display: flex;
+    font-weight: 400;
     line-height: 20px;
     color: #4f4f4f;
-    margin: 0 10px;
+    margin: -1px 10px 0 10px;
     text-align: center;
     justify-content: center;
     cursor: pointer;
   }
-  li.target {
-    height: 17px;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration-line: underline;
+  span.target {
+    font-size: 17px;
+    margin: -2px 10px 0 10px;
     color: #ffd600;
+    font-weight: 700;
+    text-decoration-line: underline;
   }
 `;
 export const PageNextBtn = styled.button`

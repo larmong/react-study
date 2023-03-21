@@ -66,13 +66,25 @@ export default function BoardListUI(props: IPropsBoardListUI) {
       </S.Table>
       <S.BoardListBottom>
         <S.PagenationContainer>
-          <S.PagePrevBtn></S.PagePrevBtn>
+          <S.PagePrevBtn onClick={props.onClickPrevPage}></S.PagePrevBtn>
           <S.Pagenation>
-            <li>1</li>
-            <li>2</li>
-            <li className="target">3</li>
+            {new Array(10).fill(1).map(
+              (_el, index) =>
+                props.lastPage >= index + props.startPage && (
+                  <span
+                    key={index + props.startPage}
+                    id={String(index + props.startPage)}
+                    className={
+                      props.nowPage === index + props.startPage ? "target" : ""
+                    }
+                    onClick={props.onClickPageNation}
+                  >
+                    {index + props.startPage}
+                  </span>
+                )
+            )}
           </S.Pagenation>
-          <S.PageNextBtn></S.PageNextBtn>
+          <S.PageNextBtn onClick={props.onClickNextPage}></S.PageNextBtn>
         </S.PagenationContainer>
         <S.NewBoardBtn onClick={props.onClickMoveToNew}>
           <img src="/images/create.svg" alt="게시물등록" />

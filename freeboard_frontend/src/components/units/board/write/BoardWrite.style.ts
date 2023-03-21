@@ -29,6 +29,7 @@ export const AddressBtn = styled.button`
   font-weight: 500;
   font-size: 16px;
   margin-left: 16px;
+  color: #fff;
 `;
 export const AddressGroup = styled.div`
   display: flex;
