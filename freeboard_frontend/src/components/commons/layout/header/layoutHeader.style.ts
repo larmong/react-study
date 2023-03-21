@@ -16,16 +16,18 @@ export const Logo = styled.h1`
   background-position: center;
   cursor: pointer;
 `;
-export const Group = styled.div`
-  button {
-    margin-left: 10px;
-    width: 92px;
-    height: 44px;
-    border-radius: 10px;
-    font-weight: 700;
+export const Group = styled.div``;
+export const HeaderMenu = styled.button`
+  margin-left: 10px;
+  width: 92px;
+  height: 44px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #333;
+  &#login {
+    border: 2px solid #ffd600;
   }
-`;
-export const LoginBtn = styled.button``;
-export const JoinBtn = styled.button`
-  background: #ffd600;
+  &#join {
+    background: #ffd600;
+  }
 `;
