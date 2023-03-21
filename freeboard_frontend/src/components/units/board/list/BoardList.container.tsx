@@ -11,7 +11,6 @@ import {
   FETCH_BOARDS_COUNT,
   FETCH_BOARDS_OF_THE_BEST,
 } from "./BoardList.queries";
-import { useState } from "react";
 
 export default function BoardList() {
   const { data: fetchBoards, refetch } = useQuery<
@@ -27,10 +26,6 @@ export default function BoardList() {
   >(FETCH_BOARDS_OF_THE_BEST);
 
   const router = useRouter();
-  const [startPage, setStartPage] = useState(1);
-  const [nowPage, setNowPage] = useState(1);
-  const totalPage = Number(fetchBoardsCount?.fetchBoardsCount);
-  const lastPage = Math.ceil(totalPage / 10);
 
   const onClickMoveToNew = () => {
     router.push(`/boards/new`);
@@ -39,36 +34,14 @@ export default function BoardList() {
     router.push(`/boards/${(event.currentTarget as Element).id}`);
   };
 
-  const onClickPageNation = (event: CustomMouseEvent) => {
-    void refetch({ page: Number(event.currentTarget.id) });
-    setNowPage(Number(event.currentTarget.id));
-  };
-
-  // TODO: Prev, Next 버튼 눌렀을 때, target 안됨ㅠ
-  const onClickPrevPage = () => {
-    if (startPage === 1) return;
-    setStartPage((prev: number) => prev - 10);
-    void refetch({ page: startPage - 10 });
-  };
-  const onClickNextPage = () => {
-    if (lastPage >= startPage + 10) {
-      setStartPage((prev: number) => prev + 10);
-      void refetch({ page: startPage + 10 });
-    }
-  };
-
   return (
     <BoardListUI
-      startPage={startPage}
-      lastPage={lastPage}
+      refetch={refetch}
       fetchBoards={fetchBoards}
+      totalPage={fetchBoardsCount?.fetchBoardsCount}
       fetchBoardsOfTheBest={fetchBoardsOfTheBest}
       onClickMoveToNew={onClickMoveToNew}
       onClickMoveToDetail={onClickMoveToDetail}
-      onClickPageNation={onClickPageNation}
-      onClickPrevPage={onClickPrevPage}
-      onClickNextPage={onClickNextPage}
-      nowPage={nowPage}
     />
   );
 }

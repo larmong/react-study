@@ -1,5 +1,9 @@
-import { IQuery } from "../../../../commons/types/generated/types";
+import {
+  IQuery,
+  IQueryFetchBoardsArgs,
+} from "../../../../commons/types/generated/types";
 import { MouseEvent } from "react";
+import { ApolloQueryResult } from "@apollo/client";
 
 export type CustomMouseEvent = MouseEvent<HTMLElement>;
 
@@ -8,10 +12,8 @@ export interface IPropsBoardListUI {
   fetchBoardsOfTheBest?: Pick<IQuery, "fetchBoardsOfTheBest">;
   onClickMoveToNew: () => void;
   onClickMoveToDetail: (event: MouseEvent<HTMLElement>) => void;
-  startPage: number;
-  lastPage: number;
-  nowPage: number;
-  onClickPageNation: (event: MouseEvent<HTMLElement>) => void;
-  onClickNextPage: () => void;
-  onClickPrevPage: () => void;
+  totalPage?: number;
+  refetch: (
+    variables: Partial<IQueryFetchBoardsArgs>
+  ) => Promise<ApolloQueryResult<Pick<IQuery, "fetchBoards">>>;
 }

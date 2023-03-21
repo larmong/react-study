@@ -1,6 +1,7 @@
 import * as S from "./BoardList.style";
 import { getMyDate } from "../../../../commons/utils/utils";
 import { IPropsBoardListUI } from "./BoardList.types";
+import Pagination01 from "../../../commons/pagination/ver1/Pagination01.container";
 
 export default function BoardListUI(props: IPropsBoardListUI) {
   return (
@@ -65,27 +66,7 @@ export default function BoardListUI(props: IPropsBoardListUI) {
         ))}
       </S.Table>
       <S.BoardListBottom>
-        <S.PagenationContainer>
-          <S.PagePrevBtn onClick={props.onClickPrevPage}></S.PagePrevBtn>
-          <S.Pagenation>
-            {new Array(10).fill(1).map(
-              (_el, index) =>
-                props.lastPage >= index + props.startPage && (
-                  <span
-                    key={index + props.startPage}
-                    id={String(index + props.startPage)}
-                    className={
-                      props.nowPage === index + props.startPage ? "target" : ""
-                    }
-                    onClick={props.onClickPageNation}
-                  >
-                    {index + props.startPage}
-                  </span>
-                )
-            )}
-          </S.Pagenation>
-          <S.PageNextBtn onClick={props.onClickNextPage}></S.PageNextBtn>
-        </S.PagenationContainer>
+        <Pagination01 refetch={props.refetch} totalPage={props.totalPage} />
         <S.NewBoardBtn onClick={props.onClickMoveToNew}>
           <img src="/images/create.svg" alt="게시물등록" />
           게시물 등록하기
