@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export interface IChildProps {
   count: number;
-  setCount: any;
-  onClickCountUp: () => void;
+  setCount?: any;
+  onClickCountUp?: () => void;
 }
 
 export default function LiftingStateUpPage() {
