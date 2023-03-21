@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/12-02-library-star": [
+    "/14-03-pagenation-last": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/12-02-library-star.js"
+      "static/chunks/pages/14-03-pagenation-last.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

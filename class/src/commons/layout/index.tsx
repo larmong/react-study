@@ -15,7 +15,6 @@ interface ILayoutProps {
 
 export default function LayoutPage(props: ILayoutProps) {
   const router = useRouter();
-  console.log(router.asPath);
 
   const isHeddenHeader = HIDDEN_HEADERS.includes(router.asPath);
 
