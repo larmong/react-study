@@ -15,15 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/15-02-comment-edit-02": [
+    "/15-04-infinite-scroller": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/15-02-comment-edit-02.js"
-    ],
-    "/15-03-comment-edit-03": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/15-03-comment-edit-03.js"
+      "static/chunks/pages/15-04-infinite-scroller.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
