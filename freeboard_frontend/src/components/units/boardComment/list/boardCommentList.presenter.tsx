@@ -1,6 +1,6 @@
 import { IBoardCommentListUI } from "./boardCommentList.types";
 import { CommentListContainer } from "./boardCommentList.style";
-import BoardCommentItem from "../item/boardCommentItem.container";
+import BoardCommentItem from "../item/list/boardCommentListItem.container";
 
 export default function BoardCommentListUI(props: IBoardCommentListUI) {
   return (

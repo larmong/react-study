@@ -64,3 +64,14 @@ export const EditGroup = styled.div`
     cursor: pointer;
   }
 `;
+
+export const CommentEdit = styled.div`
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 107px;
+  align-items: center;
+  padding-bottom: 58px;
+  margin-bottom: 20px;
+  border: 1px solid #bdbdbd;
+`;

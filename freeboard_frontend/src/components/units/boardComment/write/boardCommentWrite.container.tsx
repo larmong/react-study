@@ -73,6 +73,7 @@ export default function BoardCommentWrite() {
 
   return (
     <BoardCommentWriteUI
+      isEdit={false}
       commentLength={commentLength}
       commentRating={commentRating}
       onChangeCommentContents={onChangeCommentContents}
