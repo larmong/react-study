@@ -9,7 +9,6 @@ const NAVIGATION_MENUS = [
 ];
 
 export default function LayoutNavigationUI(props: ILayoutNavigationUI) {
-  console.log(props.nowRoute);
   return (
     <S.Navigation>
       <S.MenuGroup>

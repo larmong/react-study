@@ -3,19 +3,19 @@ import { css } from "@emotion/react";
 export const GlobalStyle = css`
   @font-face {
     font-family: "NotoSans400";
-    src: url("/fonts/NotoSansKR-Regular.woff");
+    src: url("/fonts/NotoSansKR-Regular.woff") format("font-woff");
   }
   @font-face {
     font-family: "NotoSans500";
-    src: url("/fonts/NotoSansKR-Medium.woff");
+    src: url("/fonts/NotoSansKR-Medium.woff") format("font-woff");
   }
   @font-face {
     font-family: "NotoSans700";
-    src: url("/fonts/NotoSansKR-Bold.woff");
+    src: url("/fonts/NotoSansKR-Bold.woff") format("font-woff");
   }
   @font-face {
     font-family: "NotoSans900";
-    src: url("/fonts/NotoSansKR-Black.woff");
+    src: url("/fonts/NotoSansKR-Black.woff") format("font-woff");
   }
 
   * {
