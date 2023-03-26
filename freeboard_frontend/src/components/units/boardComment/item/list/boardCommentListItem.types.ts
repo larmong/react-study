@@ -1,5 +1,5 @@
-import { CustomMouseEvent } from "../../list/boardCommentList.types";
-import { ChangeEvent } from "react";
+import { ChangeEvent, MouseEvent } from "react";
+export type CustomMouseEvent = MouseEvent<HTMLElement>;
 
 export interface IBoardCommentItem {
   el: any;
@@ -9,7 +9,7 @@ export interface IBoardCommentItem {
 export interface IBoardCommentItemUI {
   isEdit: boolean;
   el: any;
-  onClickIsEdit: () => void;
+  onClickIsEdit: (event: CustomMouseEvent) => void;
   modalToggle?: (event: CustomMouseEvent) => void;
   commentLength: string;
   commentRating: number;
@@ -17,4 +17,9 @@ export interface IBoardCommentItemUI {
   onChangeCommentPassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeRating: (value: number) => void;
   onClickCommentEdit: () => void;
+}
+
+export interface ICommentEdit {
+  contents?: string;
+  rating?: number;
 }

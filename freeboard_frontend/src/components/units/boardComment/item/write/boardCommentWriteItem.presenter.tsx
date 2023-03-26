@@ -22,7 +22,7 @@ export default function BoardCommentWriteItemUI(
         <S.CommentScore
           allowHalf
           onChange={props.onChangeRating}
-          defaultValue={props.data?.rating || props.commentRating}
+          defaultValue={props.data?.rating}
         />
       </S.CommentInfo>
       <S.CommentContents>

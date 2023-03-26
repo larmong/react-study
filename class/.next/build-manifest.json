@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/15-04-infinite-scroller": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/15-04-infinite-scroller.js"
+      "static/chunks/pages/index.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

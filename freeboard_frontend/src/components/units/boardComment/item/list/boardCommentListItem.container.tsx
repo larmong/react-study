@@ -1,4 +1,3 @@
-import { IBoardCommentItem } from "./boardCommentListItem.types";
 import BoardCommentItemUI from "./boardCommentListItem.presenter";
 import { ChangeEvent, useState } from "react";
 import { useMutation } from "@apollo/client";
@@ -7,8 +6,17 @@ import {
   IMutation,
   IMutationUpdateBoardCommentArgs,
 } from "../../../../../commons/types/generated/types";
+import {
+  CustomMouseEvent,
+  IBoardCommentItem,
+  ICommentEdit,
+} from "./boardCommentListItem.types";
+import { FETCH_BOARD_COMMENTS } from "../../list/boardCommentList.queries";
+import { useRouter } from "next/router";
 
 export default function BoardCommentItem(props: IBoardCommentItem) {
+  const router = useRouter();
+
   const [updateBoardComment] = useMutation<
     Pick<IMutation, "updateBoardComment">,
     IMutationUpdateBoardCommentArgs
@@ -18,12 +26,13 @@ export default function BoardCommentItem(props: IBoardCommentItem) {
   const [commentPassword, setCommentPassword] = useState<string>("");
   const [commentContents, setCommentContents] = useState<string>("");
   const [commentRating, setCommentRating] = useState<number>(0);
+  const [commentId, setCommentId] = useState<string>("");
 
   const [isEdit, setIsEdit] = useState(false);
-  const onClickIsEdit = () => {
+  const onClickIsEdit = (event: CustomMouseEvent) => {
     setIsEdit((prev: boolean) => !prev);
+    setCommentId(String(event.currentTarget.id));
   };
-
   const onChangeCommentContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setCommentContents(event.target.value);
     setCommentLength(String(commentContents.length));
@@ -31,21 +40,31 @@ export default function BoardCommentItem(props: IBoardCommentItem) {
   const onChangeCommentPassword = (event: ChangeEvent<HTMLInputElement>) => {
     setCommentPassword(event.target.value);
   };
-  const onChangeRating = (value: number) => {
-    setCommentRating(value);
+  const onChangeRating = async (value: number) => {
+    await setCommentRating(value);
+    console.log(value);
   };
-  const onClickCommentEdit = () => {
-    // const commentEdit = {};
-    // if (contents) commentEdit.contents;
-    // if (rating) commentEdit.rating;
-    //   const result = updateBoardComment({
-    //     variables: {
-    //       updateBoardCommentInput: commentEdit,
-    //       password: password,
-    //       boardCommentId: String(event.currentTarget.id),
-    //     },
-    //   });
-    onClickIsEdit();
+
+  const onClickCommentEdit = async () => {
+    const commentEdit: ICommentEdit = {};
+    if (commentContents) commentEdit.contents = commentContents;
+    if (commentRating) commentEdit.rating = commentRating;
+
+    const result = await updateBoardComment({
+      variables: {
+        updateBoardCommentInput: commentEdit,
+        password: commentPassword,
+        boardCommentId: commentId,
+      },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD_COMMENTS,
+          variables: { boardId: String(router.query._id) },
+        },
+      ],
+    });
+    setIsEdit((prev: boolean) => !prev);
+    console.log(commentRating);
   };
 
   return (
