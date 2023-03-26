@@ -39,6 +39,7 @@ export default function BoardCommentItemUI(props: IBoardCommentItemUI) {
       )}
       {props.isEdit && (
         <BoardCommentWriteItem
+          data={props.el}
           isEdit={props.isEdit}
           commentLength={props.commentLength}
           commentRating={props.commentRating}

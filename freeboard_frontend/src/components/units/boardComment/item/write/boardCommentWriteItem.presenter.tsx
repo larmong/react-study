@@ -1,9 +1,6 @@
 import * as S from "./boardCommentWriteItem.style";
 import { IBoardCommentWriteItemUI } from "./boardCommentWriteItem.types";
 
-// props.isEdit=true 일 때만
-// [ 댓글 작성자, 댓글 별점, 댓글 내용 가져오기
-
 export default function BoardCommentWriteItemUI(
   props: IBoardCommentWriteItemUI
 ) {
@@ -14,6 +11,8 @@ export default function BoardCommentWriteItemUI(
           type="text"
           onChange={props.onChangeCommentWriter}
           placeholder="작성자"
+          defaultValue={props.data?.writer || ""}
+          readOnly={!!props.data?.writer}
         />
         <S.CommentInput
           type="password"
@@ -22,15 +21,15 @@ export default function BoardCommentWriteItemUI(
         />
         <S.CommentScore
           allowHalf
-          defaultValue={props.commentRating}
           onChange={props.onChangeRating}
+          defaultValue={props.data?.rating || props.commentRating}
         />
       </S.CommentInfo>
       <S.CommentContents>
         <S.CommentText
           onChange={props.onChangeCommentContents}
           maxLength={100}
-          value={props.isEdit ? "" : ""}
+          defaultValue={props.data?.contents}
           placeholder={
             props.isEdit
               ? ""

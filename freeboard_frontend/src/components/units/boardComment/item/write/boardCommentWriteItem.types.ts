@@ -1,6 +1,7 @@
 import { ChangeEvent } from "react";
 
 export interface IBoardCommentWriteItem {
+  data?: any;
   isEdit: boolean;
   commentLength: string;
   commentRating: number;
@@ -17,6 +18,7 @@ export interface IIsActive {
 }
 
 export interface IBoardCommentWriteItemUI {
+  data?: any;
   isEdit: boolean;
   commentLength: string;
   commentRating: number;

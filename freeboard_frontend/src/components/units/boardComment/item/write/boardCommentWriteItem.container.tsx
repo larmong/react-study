@@ -2,6 +2,7 @@ import { IBoardCommentWriteItem } from "./boardCommentWriteItem.types";
 import BoardCommentWriteItemUI from "./boardCommentWriteItem.presenter";
 
 export default function BoardCommentWriteItem({
+  data,
   isEdit,
   commentLength,
   commentRating,
@@ -14,6 +15,7 @@ export default function BoardCommentWriteItem({
 }: IBoardCommentWriteItem) {
   return (
     <BoardCommentWriteItemUI
+      data={data}
       isEdit={isEdit}
       commentLength={commentLength}
       commentRating={commentRating}
