@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/16-02-class-counter.js"
     ],
+    "/16-03-class-lifecycle": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/16-03-class-lifecycle.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

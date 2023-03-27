@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>this의 이해</title>
+  <script>
+    class Counter {
+      count = 10
+
+      onClickButton() {
+        console.log(`현재카운트: ${this.count}`)
+      }
+
+      // (1) 방법: 화살표 함수로 변경해준다.
+      // onClickButton = () => {
+      //   console.log(`현재카운트: ${this.count}`)
+      // }
+
+      // (2) 방법: .bind(this)룰 통해 연결 시켜준다.
+      render(){
+        const button = document.createElement("button")
+        button.innerText = "클릭하세요!"
+        button.addEventListener("click", this.onClickButton.bind(this))
+        document.body.appendChild(button)
+      }
+    }
+
+    window.onload = function(){
+      const counter = new Counter()
+      counter.render()
+    }
+  </script>
+</head>
+<body>
+
+
+</body>
+</html>
