@@ -1,5 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 const CREATE_BOARD = gql`
   mutation createBoard($writer: String, $title: String, $contents: String) {
@@ -30,13 +30,13 @@ export default function GraphqlMutationPage() {
     console.log(result);
   };
 
-  const onChangeWriter = (event) => {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setWriter(event.target.value);
   };
-  const onChangeTitle = (event) => {
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
   };
-  const onChangeContents = (event) => {
+  const onChangeContents = (event: ChangeEvent<HTMLInputElement>) => {
     setContents(event.target.value);
   };
 
