@@ -1,5 +1,9 @@
 import { Component } from "react";
-import { Router } from "next/router";
+import Router from "next/router";
+
+interface IPropsState {
+  count: number;
+}
 
 export default class ClassCounterPage extends Component {
   state = {
@@ -26,8 +30,8 @@ export default class ClassCounterPage extends Component {
 
   onClickMove = () => {
     void Router.push("/");
-    this.setState((prevState: { count: number }) => ({
-      count: prevState + 1,
+    this.setState((prevState: IPropsState) => ({
+      count: prevState.count + 1,
     }));
   };
 

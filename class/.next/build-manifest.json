@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/16-02-class-counter": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/16-02-class-counter.js"
+      "static/chunks/pages/index.js"
     ],
     "/16-03-class-lifecycle": [
       "static/chunks/webpack.js",
