@@ -6,6 +6,9 @@ export default function BoardCommentWriteItem({
   isEdit,
   commentLength,
   commentRating,
+  commentPassword,
+  commentWriter,
+  commentContents,
   onChangeCommentContents,
   onChangeCommentWriter,
   onChangeCommentPassword,
@@ -19,6 +22,9 @@ export default function BoardCommentWriteItem({
       isEdit={isEdit}
       commentLength={commentLength}
       commentRating={commentRating}
+      commentPassword={commentPassword}
+      commentWriter={commentWriter}
+      commentContents={commentContents}
       onChangeCommentContents={onChangeCommentContents}
       onChangeCommentWriter={onChangeCommentWriter}
       onChangeCommentPassword={onChangeCommentPassword}

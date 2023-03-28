@@ -13,6 +13,9 @@ export default function BoardCommentWriteUI(props: IBoardCommentWriteUI) {
         isEdit={false}
         commentLength={props.commentLength}
         commentRating={props.commentRating}
+        commentPassword={props.commentPassword}
+        commentWriter={props.commentWriter}
+        commentContents={props.commentContents}
         onChangeCommentContents={props.onChangeCommentContents}
         onChangeCommentWriter={props.onChangeCommentWriter}
         onChangeCommentPassword={props.onChangeCommentPassword}

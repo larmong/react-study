@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/16-04-function-lifecycle": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/16-04-function-lifecycle.js"
+      "static/chunks/pages/index.js"
     ],
-    "/16-05-openapi-with-useEffect": [
+    "/18-01-firebase": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/16-05-openapi-with-useEffect.js"
+      "static/chunks/pages/18-01-firebase.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

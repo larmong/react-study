@@ -11,18 +11,20 @@ export default function BoardCommentWriteItemUI(
           type="text"
           onChange={props.onChangeCommentWriter}
           placeholder="작성자"
-          defaultValue={props.data?.writer || ""}
           readOnly={!!props.data?.writer}
+          value={props.commentWriter || (props.data?.writer ?? "")}
         />
         <S.CommentInput
           type="password"
           onChange={props.onChangeCommentPassword}
           placeholder="비밀번호"
+          value={props.commentPassword}
         />
         <S.CommentScore
           allowHalf
           onChange={props.onChangeRating}
           defaultValue={props.data?.rating}
+          value={props.commentRating}
         />
       </S.CommentInfo>
       <S.CommentContents>
@@ -35,6 +37,7 @@ export default function BoardCommentWriteItemUI(
               ? ""
               : "개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           }
+          value={props.commentContents}
         />
         <S.CommentBtnContainer>
           <span>{props.commentLength}/100</span>

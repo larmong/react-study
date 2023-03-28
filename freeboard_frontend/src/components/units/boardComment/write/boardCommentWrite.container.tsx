@@ -65,6 +65,11 @@ export default function BoardCommentWrite() {
           ],
         });
         alert("댓글이 등록되었습니다! 🤩");
+        setCommentLength("0");
+        setCommentWriter("");
+        setCommentPassword("");
+        setCommentContents("");
+        setCommentRating(0);
       } catch (error) {
         console.log(error);
       }
@@ -76,6 +81,9 @@ export default function BoardCommentWrite() {
       isEdit={false}
       commentLength={commentLength}
       commentRating={commentRating}
+      commentPassword={commentPassword}
+      commentWriter={commentWriter}
+      commentContents={commentContents}
       onChangeCommentContents={onChangeCommentContents}
       onChangeCommentWriter={onChangeCommentWriter}
       onChangeCommentPassword={onChangeCommentPassword}

@@ -42,7 +42,6 @@ export default function BoardCommentItem(props: IBoardCommentItem) {
   };
   const onChangeRating = async (value: number) => {
     await setCommentRating(value);
-    console.log(value);
   };
 
   const onClickCommentEdit = async () => {
@@ -63,8 +62,8 @@ export default function BoardCommentItem(props: IBoardCommentItem) {
         },
       ],
     });
+    alert("댓글이 수정되었습니다! 🤩");
     setIsEdit((prev: boolean) => !prev);
-    console.log(commentRating);
   };
 
   return (

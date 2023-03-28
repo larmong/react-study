@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/16-05-openapi-with-useEffect": "pages/16-05-openapi-with-useEffect.js"
+  "/18-01-firebase": "pages/18-01-firebase.js"
 }
