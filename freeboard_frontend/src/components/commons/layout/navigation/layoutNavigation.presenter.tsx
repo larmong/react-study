@@ -3,6 +3,7 @@ import { ILayoutNavigationUI } from "./layoutNavigation.types";
 import { Fragment } from "react";
 
 const NAVIGATION_MENUS = [
+  { name: "날씨예보", route: "weathers" },
   { name: "자유게시판", route: "boards" },
   { name: "중고마켓", route: "market" },
   { name: "마이페이지", route: "mypage" },

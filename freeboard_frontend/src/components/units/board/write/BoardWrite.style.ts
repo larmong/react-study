@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import DaumPostcodeEmbed from "react-daum-postcode";
 
 export const ActivateBtn = styled.button`
   width: 179px;
