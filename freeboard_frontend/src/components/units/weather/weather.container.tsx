@@ -83,7 +83,6 @@ export default function WeatherPage() {
                 {
                   daily: result.data.daily.time[i],
                   weather: "raining",
-                  message: "비가 와요! 우산을 꼭 챙겨야 해요 ☔️",
                 },
               ]);
               break;
@@ -93,7 +92,6 @@ export default function WeatherPage() {
                 {
                   daily: result.data.daily.time[i],
                   weather: "snowing",
-                  message: "눈이 내리는 날씨 ☃️",
                 },
               ]);
               break;
@@ -103,7 +101,6 @@ export default function WeatherPage() {
                 {
                   daily: result.data.daily.time[i],
                   weather: "rain",
-                  message: "비가 올 수도 있어요 💧",
                 },
               ]);
               break;
@@ -113,7 +110,6 @@ export default function WeatherPage() {
                 {
                   daily: result.data.daily.time[i],
                   weather: "cloudy",
-                  message: "가끔은 흐리지만 대체로 맑음 😌",
                 },
               ]);
               break;
@@ -123,7 +119,6 @@ export default function WeatherPage() {
                 {
                   daily: result.data.daily.time[i],
                   weather: "sun",
-                  message: "오늘 날씨 맑음 😊",
                 },
               ]);
               break;
