@@ -4,8 +4,6 @@ export default function FirebaseDetailPage() {
   return (
     <>
       <FirebaseDetail />
-      {/*<BoardCommentWriteUI />*/}
-      {/*<BoardCommentListUI />*/}
     </>
   );
 }

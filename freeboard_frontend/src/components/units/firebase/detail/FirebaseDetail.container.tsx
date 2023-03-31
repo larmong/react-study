@@ -1,8 +1,16 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { query, getDocs, where, documentId } from "firebase/firestore";
+import {
+  query,
+  getDocs,
+  where,
+  documentId,
+  deleteDoc,
+} from "firebase/firestore";
 import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
 import BoardDetailUI from "./FirebaseDetail.presenter";
+import { db } from "../../../../commons/libraries/firebase/firebase.config";
+import { doc } from "@firebase/firestore";
 
 export default function FirebaseDetail() {
   const router = useRouter();
@@ -39,10 +47,9 @@ export default function FirebaseDetail() {
     router.push(`/firebase/${router.query.id}/edit`);
   };
   const onClickDelete = async () => {
+    const boardDoc = doc(db, "boards", boardId);
+    await deleteDoc(boardDoc);
     alert("게시글이 삭제되었습니다! 😶‍🌫");
-    // await deleteBoard({
-    //   variables: { boardId: String(router.query.id) },
-    // });
     router.push(`/firebase`);
   };
 

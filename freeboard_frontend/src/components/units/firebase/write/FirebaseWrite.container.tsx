@@ -1,10 +1,10 @@
-import { addDoc, doc, updateDoc } from "@firebase/firestore";
-import { todayDate } from "../../../../commons/utils/utils";
 import { useRouter } from "next/router";
+import { addDoc, doc, updateDoc } from "@firebase/firestore";
 import BoardWriteUI from "./FirebaseWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
 import { useState, ChangeEvent } from "react";
 import { CustomMouseEvent } from "../list/FirebaseList.types";
+import moment from "moment";
 import {
   IFirebaseEditVariables,
   IPropsFirebaseWrite,
@@ -95,7 +95,7 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
             address: address,
             addressDetail: addressDetail,
           },
-          createdAt: todayDate(),
+          createdAt: moment().format("YYYY-MM-DD HH:mm:ss"),
         });
 
         alert("게시글이 등록되었습니다! 🥳");

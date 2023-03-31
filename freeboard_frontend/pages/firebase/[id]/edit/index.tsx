@@ -11,7 +11,6 @@ export default function BoardsEditPage() {
 
   useEffect(() => {
     if (boardId) {
-      console.log(boardId);
       const getBoard = async () => {
         const data = await query(
           boardsCollectionRef,
