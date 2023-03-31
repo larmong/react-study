@@ -1,13 +1,12 @@
-import { db } from "../../../../commons/libraries/firebase";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { collection, getDocs, DocumentData } from "firebase/firestore";
 import { CustomMouseEvent } from "./FirebaseList.types";
 import FirebaseListUI from "./FirebaseList.presenter";
+import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
 
 export default function FirebaseList() {
   const router = useRouter();
-  const boardsCollectionRef = collection(db, "boards");
   const [fetchBoards, setFetchBoards] = useState<DocumentData[]>([]);
 
   useEffect(() => {

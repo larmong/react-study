@@ -1,13 +1,12 @@
-import { db } from "../../../../commons/libraries/firebase";
 import { addDoc } from "@firebase/firestore";
 import { todayDate } from "../../../../commons/utils/utils";
 import { useRouter } from "next/router";
-import { collection } from "firebase/firestore";
 import BoardWriteUI from "./FirebaseWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
 import { useState, ChangeEvent } from "react";
 import { CustomMouseEvent } from "../list/FirebaseList.types";
 import { IPropsFirebaseWrite } from "./FirebaseWrite.types";
+import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
 
 export default function FirebaseWrite(props: IPropsFirebaseWrite) {
   const router = useRouter();
@@ -81,7 +80,7 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
     }
     if (writer && password && title && contents) {
       try {
-        const result = await addDoc(collection(db, "boards"), {
+        const result = await addDoc(boardsCollectionRef, {
           writer: writer,
           password: password,
           title: title,

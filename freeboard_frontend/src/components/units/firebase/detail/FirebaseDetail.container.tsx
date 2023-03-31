@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import BoardDetailUI from "./FirebaseDetail.presenter";
-import { db } from "../../../../commons/libraries/firebase";
+import { db } from "../../../../commons/libraries/firebase/firebase";
 import {
   collection,
   query,
