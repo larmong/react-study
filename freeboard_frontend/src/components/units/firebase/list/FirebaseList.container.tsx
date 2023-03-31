@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { collection, getDocs, DocumentData } from "firebase/firestore";
+import { getDocs, DocumentData, query, orderBy } from "firebase/firestore";
 import { CustomMouseEvent } from "./FirebaseList.types";
 import FirebaseListUI from "./FirebaseList.presenter";
 import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
@@ -11,7 +11,9 @@ export default function FirebaseList() {
 
   useEffect(() => {
     const getBoards = async () => {
-      const data = await getDocs(boardsCollectionRef);
+      const data = await getDocs(
+        query(boardsCollectionRef, orderBy("createdAt", "desc"))
+      );
       setFetchBoards(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     void getBoards();

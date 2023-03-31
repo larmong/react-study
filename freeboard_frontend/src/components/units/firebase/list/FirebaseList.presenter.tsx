@@ -1,5 +1,6 @@
 import * as S from "./FirebaseList.style";
 import { IFirebaseListUI } from "./FirebaseList.types";
+import { getMyDate } from "../../../../commons/utils/utils";
 
 export default function FirebaseListUI(props: IFirebaseListUI) {
   return (
@@ -22,7 +23,7 @@ export default function FirebaseListUI(props: IFirebaseListUI) {
             <span>
               <S.ColumnWriter>{el?.writer}</S.ColumnWriter>
             </span>
-            <span>{el?.createdAt}</span>
+            <span>{getMyDate(el?.createdAt)}</span>
           </S.Row>
         ))}
       </S.Table>
