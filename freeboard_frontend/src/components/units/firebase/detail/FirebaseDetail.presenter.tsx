@@ -3,7 +3,6 @@ import { getMyDate } from "../../../../commons/utils/utils";
 import { IPropsFirebaseDetailUI } from "./FirebaseDetail.types";
 
 export default function FirebaseDetailUI(props: IPropsFirebaseDetailUI) {
-  console.log(props.fetchBoard);
   return (
     <S.Wrapper>
       <S.Container>

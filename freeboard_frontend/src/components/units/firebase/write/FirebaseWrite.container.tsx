@@ -1,12 +1,16 @@
-import { addDoc } from "@firebase/firestore";
+import { addDoc, doc, updateDoc } from "@firebase/firestore";
 import { todayDate } from "../../../../commons/utils/utils";
 import { useRouter } from "next/router";
 import BoardWriteUI from "./FirebaseWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
 import { useState, ChangeEvent } from "react";
 import { CustomMouseEvent } from "../list/FirebaseList.types";
-import { IPropsFirebaseWrite } from "./FirebaseWrite.types";
+import {
+  IFirebaseEditVariables,
+  IPropsFirebaseWrite,
+} from "./FirebaseWrite.types";
 import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
+import { db } from "../../../../commons/libraries/firebase/firebase.config";
 
 export default function FirebaseWrite(props: IPropsFirebaseWrite) {
   const router = useRouter();
@@ -120,27 +124,29 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
       return;
     }
     if (password) {
-      // const editVariables: IFirebaseEditVariables = {};
-      // if (title) editVariables.title = title;
-      // if (contents) editVariables.contents = contents;
-      // if (youtubeUrl) editVariables.contents = youtubeUrl;
-      // if (zipcode || address || addressDetail) {
-      //   editVariables.boardAddress = {};
-      //   if (zipcode) editVariables.boardAddress.zipcode = zipcode;
-      //   if (address) editVariables.boardAddress.address = address;
-      //   if (addressDetail)
-      //     editVariables.boardAddress.addressDetail = addressDetail;
-      // }
-      //
-      // const result = await updateBoard({
-      //   variables: {
-      //     updateBoardInput: editVariables,
-      //     password: password,
-      //     boardId: String(router.query._id),
-      //   },
-      // });
+      const editVariables: IFirebaseEditVariables = {};
+      if (title) editVariables.title = title;
+      if (contents) editVariables.contents = contents;
+      if (youtubeUrl) editVariables.contents = youtubeUrl;
+      if (zipcode || address || addressDetail) {
+        editVariables.boardAddress = {};
+        if (zipcode) editVariables.boardAddress.zipcode = zipcode;
+        if (address) editVariables.boardAddress.address = address;
+        if (addressDetail)
+          editVariables.boardAddress.addressDetail = addressDetail;
+      }
+
+      const updateBoard = async () => {
+        const boardDoc = doc(db, "board", String(router.query.id));
+        const updateData = {
+          updateBoardInput: editVariables,
+          password: password,
+        };
+        await updateDoc(boardDoc, updateData);
+      };
+      void updateBoard();
       alert("게시글이 수정되었습니다! 🥳");
-      // router.push(`/boards/${result.data?.updateBoard._id}`);
+      router.push(`/firebase/${router.query.id}`);
     }
   };
 
