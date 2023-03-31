@@ -1,3 +1,6 @@
+import { db } from "../../../../commons/libraries/firebase/firebase.config";
+import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
+import { doc } from "@firebase/firestore";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {
@@ -7,10 +10,7 @@ import {
   documentId,
   deleteDoc,
 } from "firebase/firestore";
-import { boardsCollectionRef } from "../../../../commons/libraries/firebase/firebase.collection";
 import BoardDetailUI from "./FirebaseDetail.presenter";
-import { db } from "../../../../commons/libraries/firebase/firebase.config";
-import { doc } from "@firebase/firestore";
 
 export default function FirebaseDetail() {
   const router = useRouter();

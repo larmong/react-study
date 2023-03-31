@@ -135,13 +135,9 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
         if (addressDetail)
           editVariables.boardAddress.addressDetail = addressDetail;
       }
-
       const updateBoard = async () => {
-        const boardDoc = doc(db, "board", String(router.query.id));
-        const updateData = {
-          updateBoardInput: editVariables,
-          password: password,
-        };
+        const boardDoc = doc(db, "boards", String(router.query.id));
+        const updateData: any = editVariables;
         await updateDoc(boardDoc, updateData);
       };
       void updateBoard();
