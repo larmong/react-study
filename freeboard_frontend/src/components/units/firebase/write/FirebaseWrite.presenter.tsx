@@ -15,8 +15,8 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
               type="text"
               placeholder="이름을 적어주세요."
               onChange={props.onChangeWriter}
-              defaultValue={props.data?.fetchBoard.writer || ""}
-              readOnly={!!props.data?.fetchBoard.writer}
+              defaultValue={props.fetchBoard?.writer || ""}
+              readOnly={!!props.fetchBoard?.writer}
             />
           </S.Twin>
           <S.Twin>
@@ -38,7 +38,7 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
             type="text"
             placeholder="제목을 작성해주세요."
             onChange={props.onChangeTitle}
-            defaultValue={props.data?.fetchBoard.title}
+            defaultValue={props.fetchBoard?.title}
           />
         </S.Group>
         <S.Group>
@@ -48,7 +48,7 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
           <S.TextItem
             placeholder="내용을 작성해주세요."
             onChange={props.onChangeContents}
-            defaultValue={props.data?.fetchBoard.contents}
+            defaultValue={props.fetchBoard?.contents}
           />
         </S.Group>
         <S.AddressGroup>
@@ -59,8 +59,8 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
               readOnly
               value={
                 props.zipcode ||
-                (props.data &&
-                  String(props.data?.fetchBoard.boardAddress?.zipcode)) ||
+                (props.fetchBoard &&
+                  String(props.fetchBoard?.boardAddress?.zipcode)) ||
                 ""
               }
               placeholder="우편번호"
@@ -75,8 +75,8 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
             readOnly
             value={
               props.address ||
-              (props.data &&
-                String(props.data?.fetchBoard.boardAddress?.address)) ||
+              (props.fetchBoard &&
+                String(props.fetchBoard?.boardAddress?.address)) ||
               ""
             }
             placeholder="주소"
@@ -85,8 +85,8 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
             type="text"
             onChange={props.onChangeAddress}
             defaultValue={
-              (props.data &&
-                String(props.data?.fetchBoard?.boardAddress?.addressDetail)) ||
+              (props.fetchBoard &&
+                String(props.fetchBoard?.boardAddress?.addressDetail)) ||
               ""
             }
             placeholder="상세주소"
@@ -99,7 +99,7 @@ export default function FirebaseWriteUI(props: IPropsFirebaseBoardWriteUI) {
             placeholder="링크를 복사해주세요."
             onChange={props.onChangeYoutubeUrl}
             defaultValue={
-              (props.data && props.data?.fetchBoard.youtubeUrl) || ""
+              (props.fetchBoard && props.fetchBoard?.youtubeUrl) || ""
             }
           />
         </S.Group>

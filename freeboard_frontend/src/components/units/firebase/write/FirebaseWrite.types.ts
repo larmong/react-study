@@ -1,10 +1,9 @@
-import { IQuery } from "../../../../commons/types/generated/types";
 import { ChangeEvent } from "react";
 import { CustomMouseEvent } from "../list/FirebaseList.types";
 
 export interface IPropsFirebaseWrite {
   isEdit: boolean;
-  data?: Pick<IQuery, "fetchBoard">;
+  fetchBoard?: any;
 }
 
 export interface IFirebaseEditVariables {
@@ -39,5 +38,5 @@ export interface IPropsFirebaseBoardWriteUI {
   onClickMoveToEdit: () => void;
   onClickMoveToList: () => void;
   isEdit: boolean;
-  data?: Pick<IQuery, "fetchBoard">;
+  fetchBoard?: any;
 }

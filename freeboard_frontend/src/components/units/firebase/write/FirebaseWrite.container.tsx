@@ -151,7 +151,7 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
   };
 
   const onClickMoveToList = () => {
-    router.push(`/firebase/${router.query._id}`);
+    router.push(`/firebase/${router.query.id}`);
   };
 
   const modalToggle = () => {
@@ -193,7 +193,7 @@ export default function FirebaseWrite(props: IPropsFirebaseWrite) {
         onClickMoveToEdit={onClickMoveToEdit}
         onClickMoveToList={onClickMoveToList}
         isEdit={props.isEdit}
-        data={props.data}
+        fetchBoard={props.fetchBoard}
       />
       <PostcodeModalComponent
         isModal={isModal}
