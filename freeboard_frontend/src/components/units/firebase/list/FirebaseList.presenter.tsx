@@ -11,7 +11,7 @@ export default function FirebaseListUI(props: IFirebaseListUI) {
           <span>작성자</span>
           <span>날짜</span>
         </S.RowTitle>
-        {props.dataBoards?.map((el: any, index: any) => (
+        {props.fetchBoards?.map((el: any, index: any) => (
           <S.Row key={index}>
             <span>{index + 1}</span>
             <span>

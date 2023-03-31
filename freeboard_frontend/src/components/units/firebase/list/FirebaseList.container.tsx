@@ -1,32 +1,21 @@
-import { firebaseApp } from "../../../../commons/libraries/firebase";
-import FirebaseListUI from "./FirebaseList.presenter";
+import { db } from "../../../../commons/libraries/firebase";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { collection, getDocs, DocumentData } from "firebase/firestore";
 import { CustomMouseEvent } from "./FirebaseList.types";
-import {
-  collection,
-  getFirestore,
-  getDocs,
-  DocumentData,
-} from "firebase/firestore/lite";
+import FirebaseListUI from "./FirebaseList.presenter";
 
 export default function FirebaseList() {
   const router = useRouter();
-  const [dataBoards, setDataBoards] = useState<DocumentData[]>([]);
+  const boardsCollectionRef = collection(db, "boards");
+  const [fetchBoards, setFetchBoards] = useState<DocumentData[]>([]);
 
   useEffect(() => {
-    const fetchBoards = async () => {
-      const board = collection(getFirestore(firebaseApp), "boards");
-      const result = await getDocs(board);
-      const boards = result.docs.map((el) => el.data());
-      const boardsId = result.docs.map((el) => el.id);
-
-      boards.map((obj: any, index: number) => {
-        const updatedObj = { ...obj, id: boardsId[index] };
-        setDataBoards((prevArray) => [...prevArray, updatedObj]);
-      });
+    const getBoards = async () => {
+      const data = await getDocs(boardsCollectionRef);
+      setFetchBoards(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-    void fetchBoards();
+    void getBoards();
   }, []);
 
   const onClickMoveToNew = () => {
@@ -38,7 +27,7 @@ export default function FirebaseList() {
 
   return (
     <FirebaseListUI
-      dataBoards={dataBoards}
+      fetchBoards={fetchBoards}
       onClickMoveToNew={onClickMoveToNew}
       onClickMoveToDetail={onClickMoveToDetail}
     />
