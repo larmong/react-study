@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/": [
+    "/19-02-image-ref": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/pages/19-02-image-ref.js"
     ],
-    "/18-01-firebase": [
+    "/19-04-image-with-board": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/18-01-firebase.js"
+      "static/chunks/pages/19-04-image-with-board.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
