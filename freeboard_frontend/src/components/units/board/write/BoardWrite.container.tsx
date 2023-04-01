@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
@@ -191,6 +191,12 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     newFileUrls[index] = fileUrl;
     setFileUrls(newFileUrls);
   };
+
+  useEffect(() => {
+    if (props.data?.fetchBoard.images?.length) {
+      setFileUrls([...props.data?.fetchBoard.images]);
+    }
+  }, [props.data]);
 
   return (
     <>
