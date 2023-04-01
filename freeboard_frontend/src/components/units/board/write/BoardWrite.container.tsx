@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 import BoardWriteUI from "./BoardWrite.presenter";
 import PostcodeModalComponent from "../../../commons/postcodeModal/postcodeModal.container";
@@ -23,6 +23,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   const [address, setAddress] = useState<string>("");
   const [addressDetail, setAddressDetail] = useState<string>("");
   const [youtubeUrl, setYoutubeUrl] = useState<string>("");
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
   const [writerError, setWriterError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
@@ -41,40 +42,39 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     IMutationUpdateBoardArgs
   >(UPDATE_BOARD);
 
-  function onChangeWriter(event: ChangeEvent<HTMLInputElement>) {
+  const onChangeWriter = (event: ChangeEvent<HTMLInputElement>) => {
     setWriter(event.target.value);
     if (!writer) {
       setWriterError("");
     }
-  }
-
-  function onChangePassword(event: ChangeEvent<HTMLInputElement>) {
+  };
+  const onChangePassword = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     if (!password) {
       setPasswordError("");
     }
-  }
-  function onChangeTitle(event: ChangeEvent<HTMLInputElement>) {
+  };
+  const onChangeTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
     if (!title) {
       setTitleError("");
     }
-  }
-  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
+  };
+  const onChangeContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setContents(event.target.value);
     if (!contents) {
       setContentsError("");
     }
-  }
-  function onChangeAddress(event: ChangeEvent<HTMLInputElement>) {
+  };
+  const onChangeAddress = (event: ChangeEvent<HTMLInputElement>) => {
     setAddressDetail(event.target.value);
     if (!zipcode && !address && addressDetail) {
       setAddressError("");
     }
-  }
-  function onChangeYoutubeUrl(event: ChangeEvent<HTMLInputElement>) {
+  };
+  const onChangeYoutubeUrl = (event: ChangeEvent<HTMLInputElement>) => {
     setYoutubeUrl(event.target.value);
-  }
+  };
 
   const onClickSubmit = async () => {
     if (!writer) {
@@ -107,6 +107,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
                 address: address,
                 addressDetail: addressDetail,
               },
+              images: [...fileUrls],
             },
           },
         });
@@ -119,6 +120,10 @@ export default function BoardWrite(props: IPropsBoardWrite) {
   };
 
   const onClickMoveToEdit = async () => {
+    const currentFiles = JSON.stringify(fileUrls);
+    const defaultFiles = JSON.stringify(props.data?.fetchBoard.images);
+    const isChangedFiles = currentFiles !== defaultFiles;
+
     if (
       !title &&
       !contents &&
@@ -147,6 +152,7 @@ export default function BoardWrite(props: IPropsBoardWrite) {
         if (addressDetail)
           editVariables.boardAddress.addressDetail = addressDetail;
       }
+      if (isChangedFiles) editVariables.images = fileUrls;
 
       const result = await updateBoard({
         variables: {
@@ -180,6 +186,12 @@ export default function BoardWrite(props: IPropsBoardWrite) {
     modalToggle();
   };
 
+  const onChangeFileUrls = (fileUrl: string, index: number) => {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    setFileUrls(newFileUrls);
+  };
+
   return (
     <>
       <BoardWriteUI
@@ -204,6 +216,8 @@ export default function BoardWrite(props: IPropsBoardWrite) {
         onClickMoveToList={onClickMoveToList}
         isEdit={props.isEdit}
         data={props.data}
+        fileUrls={fileUrls}
+        onChangeFileUrls={onChangeFileUrls}
       />
       <PostcodeModalComponent
         isModal={isModal}

@@ -159,28 +159,6 @@ export const TwinGroup = styled.div`
   width: 100%;
   padding-top: 80px;
 `;
-export const UploadImg = styled.li`
-  width: 78px;
-  height: 78px;
-  margin-right: 24px;
-  background: #bdbdbd;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  > img {
-    width: 14px;
-    height: 14px;
-    margin-bottom: 5px;
-  }
-  > span {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 17px;
-    color: #4f4f4f;
-  }
-`;
 export const UploadList = styled.ul`
   display: flex;
 `;

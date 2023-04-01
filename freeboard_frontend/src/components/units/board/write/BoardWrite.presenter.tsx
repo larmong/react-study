@@ -1,5 +1,6 @@
 import * as S from "./BoardWrite.style";
 import { IPropsBoardWriteUI } from "./BoardWrite.types";
+import Uploads01 from "../../../commons/uploads/01/Uploads01.presenter";
 
 export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (
@@ -106,18 +107,14 @@ export default function BoardWriteUI(props: IPropsBoardWriteUI) {
         <S.Group>
           <S.InputTitle>사진 첨부</S.InputTitle>
           <S.UploadList>
-            <S.UploadImg>
-              <img src="/images/upload.svg" alt="플러스" />
-              <span>Upload</span>
-            </S.UploadImg>
-            <S.UploadImg>
-              <img src="/images/upload.svg" alt="플러스" />
-              <span>Upload</span>
-            </S.UploadImg>
-            <S.UploadImg>
-              <img src="/images/upload.svg" alt="플러스" />
-              <span>Upload</span>
-            </S.UploadImg>
+            {props.fileUrls.map((el, index) => (
+              <Uploads01
+                key={index}
+                index={index}
+                fileUrl={el}
+                onChangeFileUrls={props.onChangeFileUrls}
+              />
+            ))}
           </S.UploadList>
         </S.Group>
         <S.MainSettingsGroup>

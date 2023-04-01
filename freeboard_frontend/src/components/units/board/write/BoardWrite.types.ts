@@ -1,5 +1,5 @@
 import { IQuery } from "../../../../commons/types/generated/types";
-import { ChangeEvent } from "react";
+import { ChangeEvent, LegacyRef } from "react";
 import { CustomMouseEvent } from "../list/BoardList.types";
 
 export interface IPropsBoardWrite {
@@ -16,6 +16,7 @@ export interface IEditVariables {
     address?: string;
     addressDetail?: string;
   };
+  images?: string[];
 }
 
 export interface IPropsBoardWriteUI {
@@ -32,12 +33,14 @@ export interface IPropsBoardWriteUI {
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-  onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
   modalToggle: (event: CustomMouseEvent) => void;
   onClickSubmit: () => void;
   onClickMoveToEdit: () => void;
   onClickMoveToList: () => void;
   isEdit: boolean;
   data?: Pick<IQuery, "fetchBoard">;
+  fileUrls: string[];
+  onChangeFileUrls: (fileUrls: string, index: number) => void;
 }
