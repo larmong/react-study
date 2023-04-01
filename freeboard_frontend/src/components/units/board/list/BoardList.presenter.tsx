@@ -15,7 +15,9 @@ export default function BoardListUI(props: IPropsBoardListUI) {
               alt="프리뷰이미지"
             />
             <S.BestBoardCardContents>
-              <h5>{el.title}</h5>
+              <h5 onClick={props.onClickMoveToDetail} id={el._id}>
+                {el.title}
+              </h5>
               <div>
                 <S.BestBoardCardProfile>
                   <div>

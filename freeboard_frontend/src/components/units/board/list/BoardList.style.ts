@@ -15,6 +15,7 @@ export const BestBoardCard = styled.div`
 export const BestBoardCardContents = styled.div`
   padding: 20px;
   h5 {
+    cursor: pointer;
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
