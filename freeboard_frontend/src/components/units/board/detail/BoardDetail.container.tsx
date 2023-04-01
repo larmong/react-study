@@ -5,10 +5,17 @@ import BoardDetailUI from "./BoardDetail.presenter";
 import {
   IMutation,
   IMutationDeleteBoardArgs,
+  IMutationDislikeBoardArgs,
+  IMutationLikeBoardArgs,
   IQuery,
   IQueryFetchBoardArgs,
 } from "../../../../commons/types/generated/types";
-import { DELETE_BOARD, FETCH_BOARD } from "./BoardDetail.queries";
+import {
+  DELETE_BOARD,
+  DISLIKE_BOARD,
+  FETCH_BOARD,
+  LIKE_BOARD,
+} from "./BoardDetail.queries";
 
 export default function BoardDetail() {
   const router = useRouter();
@@ -23,6 +30,40 @@ export default function BoardDetail() {
   >(FETCH_BOARD, {
     variables: { boardId: String(router.query._id) },
   });
+  const [likeBoard] = useMutation<
+    Pick<IMutation, "likeBoard">,
+    IMutationLikeBoardArgs
+  >(LIKE_BOARD);
+  const [dislikeBoard] = useMutation<
+    Pick<IMutation, "dislikeBoard">,
+    IMutationDislikeBoardArgs
+  >(DISLIKE_BOARD);
+
+  const onClickLike = async () => {
+    if (typeof router.query._id !== "string") return;
+    await likeBoard({
+      variables: { boardId: String(router.query._id) },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: String(router.query._id) },
+        },
+      ],
+    });
+  };
+
+  const onClickDislike = async () => {
+    if (typeof router.query._id !== "string") return;
+    await dislikeBoard({
+      variables: { boardId: String(router.query._id) },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: String(router.query._id) },
+        },
+      ],
+    });
+  };
 
   const onClickMoveToEdit = () => {
     router.push(`/boards/${router.query._id}/edit`);
@@ -53,6 +94,8 @@ export default function BoardDetail() {
       onClickMoveToEdit={onClickMoveToEdit}
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}
+      onClickLike={onClickLike}
+      onClickDislike={onClickDislike}
     />
   );
 }

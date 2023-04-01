@@ -7,4 +7,6 @@ export interface IPropsBoardDetailUI {
   onClickMoveToEdit: () => void;
   onClickMoveToList: () => void;
   onClickDelete: () => void;
+  onClickLike: () => void;
+  onClickDislike: () => void;
 }

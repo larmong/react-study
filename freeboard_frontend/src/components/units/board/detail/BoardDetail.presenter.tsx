@@ -56,11 +56,19 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         </S.DetailContents>
         <S.UpDownGroup>
           <S.UpDown>
-            <img src="/images/up.svg" alt="좋아요" />
+            <img
+              src="/images/up.svg"
+              alt="좋아요"
+              onClick={props.onClickLike}
+            />
             <span>{props.fetchBoard?.fetchBoard?.likeCount}</span>
           </S.UpDown>
           <S.UpDown>
-            <img src="/images/down.svg" alt="싫어요" />
+            <img
+              src="/images/down.svg"
+              alt="싫어요"
+              onClick={props.onClickDislike}
+            />
             <span>{props.fetchBoard?.fetchBoard?.dislikeCount}</span>
           </S.UpDown>
         </S.UpDownGroup>
