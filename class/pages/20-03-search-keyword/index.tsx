@@ -49,7 +49,6 @@ export default function SearchPage() {
 
   const getDebounce = debounce((value) => {
     void refetch({ search: value, page: 1 });
-    setKeyword(value);
   }, 500);
   const onChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
     getDebounce(event.target.value);

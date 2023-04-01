@@ -2,6 +2,7 @@ import * as S from "./BoardList.style";
 import { getMyDate } from "../../../../commons/utils/utils";
 import { IPropsBoardListUI } from "./BoardList.types";
 import Pagination01 from "../../../commons/pagination/ver1/Pagination01.container";
+import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
 
 export default function BoardListUI(props: IPropsBoardListUI) {
   return (
@@ -38,10 +39,11 @@ export default function BoardListUI(props: IPropsBoardListUI) {
         ))}
       </S.CardContainer>
       <S.SearchItemGroup>
-        <S.SearchItemBox>
-          <S.SearchIcon src="/images/search.svg" alt="검색" />
-          <S.SearchItem type="text" placeholder="제목을 검색해주세요." />
-        </S.SearchItemBox>
+        <Searchbars01
+          refetch={props.refetch}
+          refetchBoardsCount={props.refetchBoardsCount}
+          onChangeKeyword={props.onChangeKeyword}
+        />
         <S.DateItem type="text" placeholder="YYYY. MM.DD ~ YYYY. MM.DD" />
         <S.BlackBtn>검색하기</S.BlackBtn>
       </S.SearchItemGroup>
