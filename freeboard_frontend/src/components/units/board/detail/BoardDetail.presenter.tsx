@@ -41,7 +41,13 @@ export default function BoardDetailUI(props: IPropsBoardDetailUI) {
         </S.DetailTop>
         <S.Line></S.Line>
         <S.DetailTitle>{props.fetchBoard?.fetchBoard?.title}</S.DetailTitle>
-        <S.DetailImages src="/images/sample.png" alt="샘플이미지" />
+        <S.ImageWrapper>
+          {props.fetchBoard?.fetchBoard?.images
+            ?.filter((el: string) => el)
+            .map((el: string) => (
+              <S.Image key={el} src={`https://storage.googleapis.com/${el}`} />
+            ))}
+        </S.ImageWrapper>
         <S.DetailContents>
           {props.fetchBoard?.fetchBoard?.contents}
           {props.fetchBoard?.fetchBoard?.youtubeUrl && (

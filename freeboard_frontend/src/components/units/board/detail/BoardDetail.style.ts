@@ -37,10 +37,18 @@ export const DetailContents = styled.div`
   line-height: 24px;
   margin-bottom: 40px;
 `;
-export const DetailImages = styled.img`
+export const ImageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-bottom: 40px;
 `;
+
+export const Image = styled.img`
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
 export const DetailTitle = styled.h3`
   font-weight: 700;
   font-size: 36px;
