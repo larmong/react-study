@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/": [
+    "/21-01-functional-component/01-parent": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/index.js"
+      "static/chunks/pages/21-01-functional-component/01-parent.js"
     ],
-    "/20-01-search": [
+    "/21-02-map-el": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/20-01-search.js"
+      "static/chunks/pages/21-02-map-el.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
