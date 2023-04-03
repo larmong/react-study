@@ -5,6 +5,8 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../commons/store";
 
 const GLOBAL_STATE = new InMemoryCache(); // 함수 밖에서 설정
 
@@ -14,8 +16,11 @@ interface IProps {
 
 // GraphQL setting
 export default function ApolloSetting(props: IProps) {
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
+
   const uploadLink = createUploadLink({
-    uri: "http://practice.codebootcamp.co.kr/graphql",
+    uri: "https://backendonline.codebootcamp.co.kr/graphql",
+    headers: { Authorization: `Bearer ${accessToken}` },
   });
 
   const client = new ApolloClient({

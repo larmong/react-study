@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Module '04frontend'" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5d2c5a80-e24d-464a-887f-f3f00101924b" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="97b4c071-84c0-43bb-b1c5-be1352eb89b1" />
+        <option name="url" value="https://github.com/larmong/react-study.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MHZfixmaZ5Ti2jHovfx3zz1hQd" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "NewWatcherDialog.advanced.open": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "javascript.nodejs.core.library.configured.version": "16.14.0",
+    "javascript.nodejs.core.library.typings.version": "16.18.13",
+    "last_opened_file_path": "/Users/larmong/Desktop/codecamp/04frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/Users/larmong/Desktop/codecamp/04frontend/class/node_modules/prettier",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "PLAIN_TEXT"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/class/src/commons/types/generated" />
+      <recent name="$PROJECT_DIR$/class/pages" />
+      <recent name="$PROJECT_DIR$/class/src/components/units/21-global-state" />
+      <recent name="$PROJECT_DIR$/freeboard_frontend/src/components/commons/searchbars/01" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/freeboard_frontend/src/commons/libraries/firebase" />
+      <recent name="$PROJECT_DIR$/freeboard_frontend/src/components/units/firebase/list" />
+      <recent name="$PROJECT_DIR$/freeboard_frontend/src/components/units/boardComment/item/list" />
+      <recent name="$PROJECT_DIR$/class/public/font" />
+      <recent name="$PROJECT_DIR$/freeboard_frontend/src/commons/style" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="this.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/04frontend/class/pages/16-02-class-counter/this.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.this.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d2c5a80-e24d-464a-887f-f3f00101924b" name="Changes" comment="" />
+      <created>1677426573132</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1677426573132</updated>
+      <workItem from="1677426574194" duration="36357000" />
+      <workItem from="1677659600992" duration="250000" />
+      <workItem from="1677659859138" duration="860000" />
+      <workItem from="1677660787033" duration="1311000" />
+      <workItem from="1677662105872" duration="425000" />
+      <workItem from="1677662538315" duration="866000" />
+      <workItem from="1677663413244" duration="4099000" />
+      <workItem from="1677766170080" duration="32032000" />
+      <workItem from="1677954439391" duration="2256000" />
+      <workItem from="1678026785593" duration="5907000" />
+      <workItem from="1678186757407" duration="50822000" />
+      <workItem from="1678537173117" duration="3352000" />
+      <workItem from="1678631634529" duration="2213000" />
+      <workItem from="1678633864753" duration="94000" />
+      <workItem from="1678633962323" duration="1000" />
+      <workItem from="1678634029732" duration="814000" />
+      <workItem from="1678634852920" duration="581000" />
+      <workItem from="1678639194638" duration="13400000" />
+      <workItem from="1678718840137" duration="8066000" />
+      <workItem from="1678810561004" duration="26974000" />
+      <workItem from="1678943291521" duration="137000" />
+      <workItem from="1678943435286" duration="12446000" />
+      <workItem from="1678956216440" duration="16968000" />
+      <workItem from="1678982954065" duration="1186000" />
+      <workItem from="1678984149795" duration="3000" />
+      <workItem from="1678984210910" duration="253000" />
+      <workItem from="1678984526716" duration="140000" />
+      <workItem from="1678984673012" duration="33000" />
+      <workItem from="1678984709123" duration="4090000" />
+      <workItem from="1679020631132" duration="3663000" />
+      <workItem from="1679057493278" duration="16869000" />
+      <workItem from="1679136612336" duration="2940000" />
+      <workItem from="1679140564649" duration="13451000" />
+      <workItem from="1679202525023" duration="55256000" />
+      <workItem from="1679391452273" duration="49636000" />
+      <workItem from="1679730209138" duration="21721000" />
+      <workItem from="1680008909070" duration="122693000" />
+      <workItem from="1680458890879" duration="8312000" />
+      <workItem from="1680516564947" duration="10137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/freeboard_frontend" />
+      <path value="$PROJECT_DIR$/class" />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/class/pages/01-02-emotion/index.js</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/freeboard_frontend/src/components/units/firebase/list/FirebaseList.container.tsx</url>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/class/pages/20-03-search-keyword/index.tsx</url>
+          <line>13</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

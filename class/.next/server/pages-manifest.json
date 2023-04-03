@@ -2,6 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/21-06-global-state": "pages/21-06-global-state.js"
+  "/22-02-login-success": "pages/22-02-login-success.js"
 }
