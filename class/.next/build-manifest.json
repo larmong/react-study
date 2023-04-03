@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/22-01-login": [
+    "/23-01-login-localstorage": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/22-01-login.js"
+      "static/chunks/pages/23-01-login-localstorage.js"
     ],
-    "/22-02-login-success": [
+    "/23-02-login-localstorage-success": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/22-02-login-success.js"
+      "static/chunks/pages/23-02-login-localstorage-success.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
