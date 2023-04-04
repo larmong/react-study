@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/23-01-login-localstorage": [
+    "/23-08-login-check-hoc": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/23-01-login-localstorage.js"
+      "static/chunks/pages/23-08-login-check-hoc.js"
     ],
-    "/23-02-login-localstorage-success": [
+    "/23-09-login-check-hoc-success": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/23-02-login-localstorage-success.js"
+      "static/chunks/pages/23-09-login-check-hoc-success.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

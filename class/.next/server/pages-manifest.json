@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/23-02-login-localstorage-success": "pages/23-02-login-localstorage-success.js"
+  "/23-08-login-check-hoc": "pages/23-08-login-check-hoc.js"
 }
