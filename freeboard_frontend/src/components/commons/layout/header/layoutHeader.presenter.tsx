@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import { useRouter } from "next/router";
 
 const HEADER_MENUS = [
-  { name: "로그인", route: "login" },
+  { name: "로그인", route: "/" },
   { name: "회원가입", route: "join" },
 ];
 

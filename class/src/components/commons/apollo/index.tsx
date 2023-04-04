@@ -7,7 +7,7 @@ import {
 import { createUploadLink } from "apollo-upload-client";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../../../commons/store";
-import {useEffect} from "react";
+import { useEffect } from "react";
 
 const GLOBAL_STATE = new InMemoryCache(); // 함수 밖에서 설정
 
@@ -34,11 +34,10 @@ export default function ApolloSetting(props: IProps) {
   // }
 
   // 3. 프리렌더링 무시 - useEffect 방법
- useEffect(() => {
-   const result = localStorage.getItem("accessToken")
-   if(result) setAccessToken(result)
- })
-
+  useEffect(() => {
+    const result = localStorage.getItem("accessToken");
+    if (result) setAccessToken(result);
+  });
 
   const uploadLink = createUploadLink({
     uri: "https://backendonline.codebootcamp.co.kr/graphql",

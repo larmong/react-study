@@ -1,5 +1,5 @@
 import { IQuery } from "../../../../commons/types/generated/types";
-import { ChangeEvent, LegacyRef } from "react";
+import { ChangeEvent } from "react";
 import { CustomMouseEvent } from "../list/BoardList.types";
 
 export interface IPropsBoardWrite {
