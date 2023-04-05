@@ -93,16 +93,17 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
         <S.MainSettingsGroup>
           <S.InputTitle>메인 사진 설정</S.InputTitle>
           <div>
-            <S.RadioItem>
-              <input type="radio" id="youtube" name="main" />
-              <label htmlFor="youtube"></label>
-              <span>사진 1</span>
-            </S.RadioItem>
-            <S.RadioItem>
-              <input type="radio" id="picture" name="main" />
-              <label htmlFor="picture"></label>
-              <span>사진 2</span>
-            </S.RadioItem>
+            {props.itemUrls.map((_: string, index: number) => (
+              <S.RadioItem key={index}>
+                <input
+                  type="radio"
+                  id={`itemUrls${String(index + 1)}`}
+                  name="main"
+                />
+                <label htmlFor={`itemUrls${String(index + 1)}`}></label>
+                <span>사진 {index + 1}</span>
+              </S.RadioItem>
+            ))}
           </div>
         </S.MainSettingsGroup>
         <S.BtnCenter>

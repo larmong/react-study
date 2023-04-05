@@ -2,7 +2,6 @@ import * as S from "./Uploads02.style";
 import { IPropsUploads02UI } from "./Uploads02.types";
 
 export default function Uploads02UI(props: IPropsUploads02UI) {
-  console.log(props.itemUrl);
   return (
     <>
       {props.itemUrl ? (

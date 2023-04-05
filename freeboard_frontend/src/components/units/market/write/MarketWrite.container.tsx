@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
@@ -20,17 +20,13 @@ export default function MarketWrite(props: IPropsMarketWrite) {
     IMutationCreateUseditemArgs
   >(CREATE_USED_ITEM);
 
-  useEffect(() => {
-    console.log(router);
-  });
-
   const [marketItems, setMarketItems] = useState<IMarketItem>({
     name: "",
     remarks: "",
     contents: "",
     price: 0,
   });
-  const [itemUrls, setItemUrls] = useState(["", ""]);
+  const [itemUrls, setItemUrls] = useState([""]);
 
   const onChangeMarketItems = (event: ChangeEvent<any>) => {
     setMarketItems({
@@ -54,14 +50,16 @@ export default function MarketWrite(props: IPropsMarketWrite) {
       });
       console.log(data);
       alert("상품이 등록되었습니다! 🥳");
-      // router.push(`/market/${data._id}`);
+      router.push(`/market/${router.query._id}`);
     } catch (err) {
       console.log(err);
     }
   };
 
   const onChangeItemUrls = (itemUrl: string, index: number) => {
-    const newItemUrls = [...itemUrls];
+    let newItemUrls = [...itemUrls, ""];
+    if (itemUrls.length >= 3) newItemUrls = [...itemUrls];
+
     newItemUrls[index] = itemUrl;
     setItemUrls(newItemUrls);
   };
