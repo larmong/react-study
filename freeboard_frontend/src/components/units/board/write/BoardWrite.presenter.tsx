@@ -1,6 +1,6 @@
 import * as S from "./BoardWrite.style";
 import { IPropsBoardWriteUI } from "./BoardWrite.types";
-import Uploads01 from "../../../commons/uploads/01/Uploads01.presenter";
+import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
 
 export default function BoardWriteUI(props: IPropsBoardWriteUI) {
   return (

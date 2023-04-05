@@ -23,18 +23,46 @@ export const DisabledBtn = styled.button`
 `;
 export const LocationGroup = styled.div`
   display: flex;
-  height: 292px;
   margin-bottom: 40px;
+  height: 292px;
 `;
 export const Map = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background: rgba(0, 0, 0, 0.1);
   width: 384px;
-  height: 252px;
+  margin-right: 24px;
 `;
-export const MapAPI = styled.div``;
+export const MapAPI = styled.div`
+  background: rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const Location = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const GPS = styled.div`
+  margin-bottom: 40px;
+  > div {
+    display: flex;
+    align-items: flex-end;
+  }
+`;
+export const MapBtn = styled.button`
+  width: 108px;
+  height: 52px;
+  left: 870px;
+  top: 1929px;
+  border: 1px solid #bdbdbd;
+  color: #4f4f4f;
+`;
+export const MapImg = styled.img`
+  width: 24px;
+  height: 24px;
+  margin: 10px 16px;
+`;
 
 export const BtnCenter = styled.div`
   display: flex;
@@ -59,6 +87,7 @@ export const InputItem = styled.input`
   border: 1px solid #bdbdbd;
   padding: 14px 16px;
   font-size: 16px;
+  margin-bottom: 16px;
 `;
 export const InputTitle = styled.span`
   display: block;

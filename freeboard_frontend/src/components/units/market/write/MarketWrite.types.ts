@@ -8,69 +8,20 @@ export interface IMarketItem {
   remarks: Scalars["String"];
   contents: Scalars["String"];
   price: Scalars["Int"];
-  // tags?: InputMaybe<Array<Scalars["String"]>>;
-  // useditemAddress?: InputMaybe<IUseditemAddressInput>;
-  // images?: InputMaybe<Array<Scalars["String"]>>;
 }
 
-export interface IpropsMarketWrite {
+export interface IPropsMarketWrite {
   isEdit?: boolean;
 }
 
 export interface IPropsMarketWriteUI {
   isEdit?: boolean;
-  onChangeMarketItems: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeMarketItems: (event: ChangeEvent<any>) => void;
 
   onClickMoveToList: () => void;
   onClickMoveToEdit: (event: CustomMouseEvent) => void;
   onClickSubmit: () => void;
 
-  onChangeName: () => void;
-  onChangeContents: () => void;
-  onChangePrice: () => void;
-  onChangeRemarks: () => void;
-  onChangeTags: () => void;
+  itemUrls: string[];
+  onChangeItemUrls: (itemUrl: string, index: number) => void;
 }
-
-// export interface IPropsBoardWrite {
-//     isEdit: boolean;
-//     data?: Pick<IQuery, "fetchBoard">;
-// }
-
-// export interface IEditVariables {
-//     title?: string;
-//     contents?: string;
-//     youtubeUrl?: string;
-//     boardAddress?: {
-//         zipcode?: string;
-//         address?: string;
-//         addressDetail?: string;
-//     };
-//     images?: string[];
-// }
-
-// export interface IPropsMarketWriteUI {
-//   isEdit: boolean;
-//   createUseditem: Pick<IMutation, "createUseditem">;
-// writer: string;
-// writerError: string;
-// passwordError: string;
-// titleError: string;
-// contentsError: string;
-// addressError: string;
-// zipcode: string;
-// address: string;
-// addressDetail: string;
-// onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
-// onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
-// onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
-// onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
-// onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
-// onChangeAddress: (event: ChangeEvent<HTMLInputElement>) => void;
-// modalToggle: (event: CustomMouseEvent) => void;
-// onClickSubmit: () => void;
-// onClickMoveToEdit: () => void;
-// onClickMoveToList: () => void;
-// fileUrls: string[];
-// onChangeFileUrls: (fileUrls: string, index: number) => void;
-// }

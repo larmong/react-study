@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
@@ -8,17 +8,21 @@ import {
 import {
   CustomMouseEvent,
   IMarketItem,
-  IpropsMarketWrite,
+  IPropsMarketWrite,
 } from "./MarketWrite.types";
 import { CREATE_USED_ITEM } from "./MarketWrite.queries";
 import MarketWriteUI from "./MarketWrite.presenter";
 
-export default function MarketWrite(props: IpropsMarketWrite) {
+export default function MarketWrite(props: IPropsMarketWrite) {
   const router = useRouter();
   const [createUsedItem] = useMutation<
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USED_ITEM);
+
+  useEffect(() => {
+    console.log(router);
+  });
 
   const [marketItems, setMarketItems] = useState<IMarketItem>({
     name: "",
@@ -26,36 +30,26 @@ export default function MarketWrite(props: IpropsMarketWrite) {
     contents: "",
     price: 0,
   });
+  const [itemUrls, setItemUrls] = useState(["", ""]);
 
-  const onChangeMarketItems = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeMarketItems = (event: ChangeEvent<any>) => {
     setMarketItems({
       ...marketItems,
       [event.target.id]: event.target.value,
     });
   };
 
-  const onChangeName = () => {};
-  const onChangeRemarks = () => {};
-  const onChangeContents = () => {};
-  const onChangePrice = () => {};
-  const onChangeTags = () => {};
-
   const onClickMoveToList = () => {
     router.push("/marker");
   };
   const onClickMoveToEdit = (event: CustomMouseEvent) => {
-    router.push(`/marker/${event.target._id}/edit`);
+    // router.push(`/marker/${event.target._id}/edit`);
   };
   const onClickSubmit = async () => {
     try {
       const data = await createUsedItem({
         variables: {
-          createUseditemInput: {
-            name: marketItems.name,
-            remarks: marketItems.remarks,
-            contents: marketItems.contents,
-            price: marketItems.price,
-          },
+          createUseditemInput: { ...marketItems },
         },
       });
       console.log(data);
@@ -66,18 +60,21 @@ export default function MarketWrite(props: IpropsMarketWrite) {
     }
   };
 
+  const onChangeItemUrls = (itemUrl: string, index: number) => {
+    const newItemUrls = [...itemUrls];
+    newItemUrls[index] = itemUrl;
+    setItemUrls(newItemUrls);
+  };
+
   return (
     <MarketWriteUI
       isEdit={props.isEdit}
       onChangeMarketItems={onChangeMarketItems}
-      onChangeName={onChangeName}
-      onChangeContents={onChangeContents}
-      onChangePrice={onChangePrice}
-      onChangeRemarks={onChangeRemarks}
-      onChangeTags={onChangeTags}
       onClickMoveToList={onClickMoveToList}
       onClickMoveToEdit={onClickMoveToEdit}
       onClickSubmit={onClickSubmit}
+      itemUrls={itemUrls}
+      onChangeItemUrls={onChangeItemUrls}
     />
   );
 }

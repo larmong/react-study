@@ -1,6 +1,6 @@
 import * as S from "./MarketWrite.style";
 import { IPropsMarketWriteUI } from "./MarketWrite.types";
-import { LocationGroup, MapAPI } from "./MarketWrite.style";
+import Uploads02 from "../../../commons/uploads/02/Uploads02.container";
 
 export default function MarketWriteUI(props: IPropsMarketWriteUI) {
   return (
@@ -40,7 +40,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
           <S.InputTitle>판매가격</S.InputTitle>
           <S.InputItem
             id="price"
-            type="number"
+            type="text"
             placeholder="판매 가격을 입력해주세요."
             onChange={props.onChangeMarketItems}
             // defaultValue={props.data?.price}
@@ -61,22 +61,34 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             <S.InputTitle>거래위치</S.InputTitle>
             <S.MapAPI>카카오 지도 API</S.MapAPI>
           </S.Map>
-          <div>
-            <div>
+          <S.Location>
+            <S.GPS>
               <S.InputTitle>GPS</S.InputTitle>
-              <button>위도</button>
-              <button>경도</button>
-            </div>
+              <div>
+                <S.MapBtn>위도(LAT)</S.MapBtn>
+                <S.MapImg src="/images/location.svg" alt="location" />
+                <S.MapBtn>경도(LNG)</S.MapBtn>
+              </div>
+            </S.GPS>
             <div>
               <S.InputTitle>주소</S.InputTitle>
-              <input type="text" />
-              <input type="text" />
+              <S.InputItem type="text" />
+              <S.InputItem type="text" />
             </div>
-          </div>
+          </S.Location>
         </S.LocationGroup>
         <S.Group>
           <S.InputTitle>사진 첨부</S.InputTitle>
-          <S.UploadList>{/*Uploads01*/}</S.UploadList>
+          <S.UploadList>
+            {props.itemUrls.map((el: string, index: number) => (
+              <Uploads02
+                key={index}
+                index={index}
+                itemUrl={el}
+                onChangeItemUrls={props.onChangeItemUrls}
+              />
+            ))}
+          </S.UploadList>
         </S.Group>
         <S.MainSettingsGroup>
           <S.InputTitle>메인 사진 설정</S.InputTitle>
