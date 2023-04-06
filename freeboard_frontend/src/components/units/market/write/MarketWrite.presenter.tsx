@@ -3,6 +3,7 @@ import { IPropsMarketWriteUI } from "./MarketWrite.types";
 import Uploads02 from "../../../commons/uploads/02/Uploads02.container";
 
 export default function MarketWriteUI(props: IPropsMarketWriteUI) {
+  console.log(props.data);
   return (
     <S.Wrapper>
       <S.Container>
@@ -14,7 +15,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             type="text"
             placeholder="상품명을 작성해주세요."
             onChange={props.onChangeMarketItems}
-            // defaultValue={props.data?.name}
+            defaultValue={props.data?.fetchUseditem.name}
           />
         </S.Group>
         <S.Group>
@@ -24,7 +25,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             type="text"
             placeholder="상품 설명을 한줄로 요약해서 작성해주세요."
             onChange={props.onChangeMarketItems}
-            // defaultValue={props.data?.remarks}
+            defaultValue={props.data?.fetchUseditem.remarks}
           />
         </S.Group>
         <S.Group>
@@ -33,7 +34,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             id="contents"
             placeholder="상품을 설명해주세요."
             onChange={props.onChangeMarketItems}
-            // defaultValue={props.data?.contents}
+            defaultValue={props.data?.fetchUseditem.contents}
           />
         </S.Group>
         <S.Group>
@@ -43,7 +44,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             type="text"
             placeholder="판매 가격을 입력해주세요."
             onChange={props.onChangeMarketItems}
-            // defaultValue={props.data?.price}
+            defaultValue={String(props.data?.fetchUseditem.price)}
           />
         </S.Group>
         <S.Group>
@@ -53,7 +54,7 @@ export default function MarketWriteUI(props: IPropsMarketWriteUI) {
             type="text"
             placeholder="#태그 #태그 #태그"
             onChange={props.onChangeMarketItems}
-            // defaultValue={props.data?.tags}
+            // defaultValue={props.data?.fetchUseditem.tags}
           />
         </S.Group>
         <S.LocationGroup>

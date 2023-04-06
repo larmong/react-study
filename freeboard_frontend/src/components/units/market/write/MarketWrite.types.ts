@@ -1,4 +1,4 @@
-import { Scalars } from "../../../../commons/types/generated/types";
+import { IQuery, Scalars } from "../../../../commons/types/generated/types";
 import { ChangeEvent, MouseEvent } from "react";
 
 export type CustomMouseEvent = MouseEvent<HTMLElement>;
@@ -12,6 +12,7 @@ export interface IMarketItem {
 
 export interface IPropsMarketWrite {
   isEdit?: boolean;
+  data?: Pick<IQuery, "fetchUseditem">;
 }
 
 export interface IPropsMarketWriteUI {
@@ -19,9 +20,17 @@ export interface IPropsMarketWriteUI {
   onChangeMarketItems: (event: ChangeEvent<any>) => void;
 
   onClickMoveToList: () => void;
-  onClickMoveToEdit: (event: CustomMouseEvent) => void;
+  onClickMoveToEdit: () => void;
   onClickSubmit: () => void;
 
   itemUrls: string[];
   onChangeItemUrls: (itemUrl: string, index: number) => void;
+  data?: Pick<IQuery, "fetchUseditem">;
+}
+
+export interface IEditUsedItem {
+  name?: string;
+  remarks?: string;
+  contents?: string;
+  price?: number;
 }

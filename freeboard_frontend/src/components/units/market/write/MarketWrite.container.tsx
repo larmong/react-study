@@ -4,13 +4,15 @@ import { useMutation } from "@apollo/client";
 import {
   IMutation,
   IMutationCreateUseditemArgs,
+  IMutationUpdateUseditemArgs,
 } from "../../../../commons/types/generated/types";
 import {
   CustomMouseEvent,
+  IEditUsedItem,
   IMarketItem,
   IPropsMarketWrite,
 } from "./MarketWrite.types";
-import { CREATE_USED_ITEM } from "./MarketWrite.queries";
+import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./MarketWrite.queries";
 import MarketWriteUI from "./MarketWrite.presenter";
 
 export default function MarketWrite(props: IPropsMarketWrite) {
@@ -19,6 +21,10 @@ export default function MarketWrite(props: IPropsMarketWrite) {
     Pick<IMutation, "createUseditem">,
     IMutationCreateUseditemArgs
   >(CREATE_USED_ITEM);
+  const [updateUsedItem] = useMutation<
+    Pick<IMutation, "updateUseditem">,
+    IMutationUpdateUseditemArgs
+  >(UPDATE_USED_ITEM);
 
   const [marketItems, setMarketItems] = useState<IMarketItem>({
     name: "",
@@ -38,9 +44,28 @@ export default function MarketWrite(props: IPropsMarketWrite) {
   const onClickMoveToList = () => {
     router.push("/marker");
   };
-  const onClickMoveToEdit = (event: CustomMouseEvent) => {
-    // router.push(`/marker/${event.target._id}/edit`);
+
+  const onClickMoveToEdit = async () => {
+    try {
+      const editUsedItem: IEditUsedItem = {};
+      if (marketItems.name) editUsedItem.name = marketItems.name;
+      if (marketItems.remarks) editUsedItem.remarks = marketItems.remarks;
+      if (marketItems.contents) editUsedItem.contents = marketItems.contents;
+      if (marketItems.price) editUsedItem.price = marketItems.price;
+
+      const data = await updateUsedItem({
+        variables: {
+          useditemId: String(router.query._id),
+          updateUseditemInput: editUsedItem,
+        },
+      });
+      alert("상품이 수정되었습니다! 🥳");
+      router.push(`/market/${router.query._id}`);
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   const onClickSubmit = async () => {
     try {
       const data = await createUsedItem({
@@ -67,6 +92,7 @@ export default function MarketWrite(props: IPropsMarketWrite) {
   return (
     <MarketWriteUI
       isEdit={props.isEdit}
+      data={props.data}
       onChangeMarketItems={onChangeMarketItems}
       onClickMoveToList={onClickMoveToList}
       onClickMoveToEdit={onClickMoveToEdit}
