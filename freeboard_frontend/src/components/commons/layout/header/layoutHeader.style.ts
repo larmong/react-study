@@ -16,18 +16,28 @@ export const Logo = styled.h1`
   background-position: center;
   cursor: pointer;
 `;
-export const Group = styled.div``;
+export const Group = styled.div`
+  display: flex;
+  gap: 20px;
+  align-items: center;
+`;
 export const HeaderMenu = styled.button`
-  margin-left: 10px;
   width: 92px;
   height: 44px;
   border-radius: 10px;
   font-weight: 600;
   color: #333;
-  &#login {
-    border: 2px solid #ffd600;
-  }
+  background: #eee;
   &#join {
     background: #ffd600;
+  }
+`;
+
+export const User = styled.div`
+  display: inline-block;
+  span {
+    display: inline-block;
+    margin-right: 5px;
+    font-weight: bold;
   }
 `;
