@@ -23,7 +23,7 @@ export default function BasketLocalstoragePage() {
     FETCH_BOARDS
   );
 
-  const onClickAddBasket = (basket: IBoard) => () => {
+  const onClickAddBasket = (basket: any) => () => {
     console.log(basket);
 
     // 1. 기존 장바구니 가져오기
