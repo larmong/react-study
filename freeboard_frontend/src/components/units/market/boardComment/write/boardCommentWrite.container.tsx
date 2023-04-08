@@ -1,0 +1,94 @@
+import { useRouter } from "next/router";
+import { ChangeEvent, useState } from "react";
+import { useMutation } from "@apollo/client";
+import BoardCommentWriteUI from "./boardCommentWrite.presenter";
+import {
+  IMutation,
+  IMutationCreateBoardCommentArgs,
+} from "../../../../commons/types/generated/types";
+import {
+  CREATE_BOARD_COMMENT,
+  FETCH_BOARD_COMMENTS,
+} from "./boardCommentWrite.queries";
+
+export default function BoardCommentWrite() {
+  const router = useRouter();
+
+  const [commentLength, setCommentLength] = useState<string>("0");
+  const [commentWriter, setCommentWriter] = useState<string>("");
+  const [commentPassword, setCommentPassword] = useState<string>("");
+  const [commentContents, setCommentContents] = useState<string>("");
+  const [commentRating, setCommentRating] = useState<number>(0);
+
+  const [createBoardComment] = useMutation<
+    Pick<IMutation, "createBoardComment">,
+    IMutationCreateBoardCommentArgs
+  >(CREATE_BOARD_COMMENT);
+
+  const onChangeCommentWriter = (event: ChangeEvent<HTMLInputElement>) => {
+    setCommentWriter(event.target.value);
+  };
+  const onChangeCommentContents = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setCommentContents(event.target.value);
+    setCommentLength(String(commentContents.length));
+  };
+  const onChangeCommentPassword = (event: ChangeEvent<HTMLInputElement>) => {
+    setCommentPassword(event.target.value);
+  };
+  const onChangeRating = (value: number) => {
+    setCommentRating(value);
+  };
+
+  const onClickCreateComment = async () => {
+    if (
+      commentWriter &&
+      commentPassword &&
+      commentContents &&
+      commentRating !== 0
+    ) {
+      try {
+        const result = await createBoardComment({
+          variables: {
+            createBoardCommentInput: {
+              writer: commentWriter,
+              password: commentPassword,
+              contents: commentContents,
+              rating: commentRating,
+            },
+            boardId: String(router.query._id),
+          },
+          refetchQueries: [
+            {
+              query: FETCH_BOARD_COMMENTS,
+              variables: { boardId: String(router.query._id) },
+            },
+          ],
+        });
+        alert("댓글이 등록되었습니다! 🤩");
+        setCommentLength("0");
+        setCommentWriter("");
+        setCommentPassword("");
+        setCommentContents("");
+        setCommentRating(0);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
+  return (
+    <BoardCommentWriteUI
+      isEdit={false}
+      commentLength={commentLength}
+      commentRating={commentRating}
+      commentPassword={commentPassword}
+      commentWriter={commentWriter}
+      commentContents={commentContents}
+      onChangeCommentContents={onChangeCommentContents}
+      onChangeCommentWriter={onChangeCommentWriter}
+      onChangeCommentPassword={onChangeCommentPassword}
+      onClickCreateComment={onClickCreateComment}
+      onChangeRating={onChangeRating}
+    />
+  );
+}
