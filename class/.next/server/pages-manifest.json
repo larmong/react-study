@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/24-01-basket-localstorage": "pages/24-01-basket-localstorage.js"
+  "/24-02-react-hook-form": "pages/24-02-react-hook-form.js"
 }

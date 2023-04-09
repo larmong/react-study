@@ -15,10 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/24-01-basket-localstorage": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/24-01-basket-localstorage.js"
+      "static/chunks/pages/index.js"
+    ],
+    "/24-02-react-hook-form": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/24-02-react-hook-form.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
