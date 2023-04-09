@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/24-02-react-hook-form.js"
     ],
+    "/24-03-react-hook-form-with-yup": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/24-03-react-hook-form-with-yup.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
