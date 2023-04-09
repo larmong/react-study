@@ -9,7 +9,7 @@ export default function ReactHookFormPage() {
   const { register, handleSubmit } = useForm<FormData>();
 
   const onClickSubmit = () => {};
-  const onClickSubmit2 = (data: any) => {
+  const onClickSubmit2 = (data: FormData) => {
     console.log(data);
   };
 
