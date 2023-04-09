@@ -15,11 +15,6 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/24-02-react-hook-form": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/24-02-react-hook-form.js"
-    ],
     "/24-03-react-hook-form-with-yup": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

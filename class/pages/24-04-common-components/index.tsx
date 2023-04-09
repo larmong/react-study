@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Input01 from "../../src/components/commons/inputs/01";
+import Button01 from "../../src/components/commons/buttons/01";
 
 export default function ReactHookFormPage() {
-  type FormData = {
+  type IFormData = {
     writer: string;
     title: string;
     contents: string;
@@ -19,39 +21,29 @@ export default function ReactHookFormPage() {
       .min(4, "비밀번호는 최소 4자리 이상으로 입력해 주세요.")
       .max(15, "비밀번호는 최대 15자리 이하로 입력해 주세요.")
       .required("비밀번호를 입력해주세요!"),
-
-    // email: yup
-    //   .string()
-    //   .email("이메일 형식에 적합하지 않습니다.")
-    //   .required("이메일을 입력해주세요!"),
-    // phone: yup
-    //   .string()
-    //   .matches(/^d{3}-\d{3,4}-\d{4}$/) // 정규표현식
-    //   .required("휴대폰을 입력해 주세요!"),
   });
 
-  const { register, handleSubmit, formState } = useForm<FormData>({
+  const { register, handleSubmit, formState } = useForm<IFormData>({
     resolver: yupResolver(schema),
-    mode: "onChange", // 제어 컴포넌트로 바꿈
+    mode: "onChange",
   });
 
-  const onClickSubmit = (data: FormData) => {
+  const onClickSubmit = (data: IFormData) => {
     console.log(data);
   };
 
   return (
-    // react-hook-form API
     //  prettier-ignore
     <form onSubmit={handleSubmit(onClickSubmit)}>
-      작성자: <input type="text" {...register("writer")} /><br />
+      작성자: <Input01 type="text" register={register("writer")} />
       <div>{formState.errors.writer?.message}</div>
-      제목: <input type="text" {...register("title")} /><br />
+      제목: <Input01 type="text" register={register("title")} />
       <div>{formState.errors.title?.message}</div>
-      내용: <input type="text" {...register("contents")} /><br />
+      내용: <Input01 type="text" register={register("contents")} />
       <div>{formState.errors.contents?.message}</div>
-      비밀번호: <input type="text" {...register("password")} /><br />
+      비밀번호: <Input01 type="password" register={register("password")} />
       <div>{formState.errors.password?.message}</div>
-      <button style={{ backgroundColor: formState.isValid ? "yellow" : "" }}>등록하기</button>
+      <Button01 title="등록하기" isActive={formState.isValid}/>
     </form>
   );
 }
