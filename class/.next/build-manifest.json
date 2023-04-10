@@ -20,6 +20,11 @@
       "static/chunks/main.js",
       "static/chunks/pages/25-02-destructuring-with-use-state.js"
     ],
+    "/25-03-basket-localstorage-rest-parameter": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/25-03-basket-localstorage-rest-parameter.js"
+    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
