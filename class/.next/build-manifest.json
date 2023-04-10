@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/25-02-destructuring-with-use-state": [
+    "/23-08-login-check-hoc": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/25-02-destructuring-with-use-state.js"
+      "static/chunks/pages/23-08-login-check-hoc.js"
     ],
-    "/25-03-basket-localstorage-rest-parameter": [
+    "/25-04-custom-hooks-use-auth": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/25-03-basket-localstorage-rest-parameter.js"
+      "static/chunks/pages/25-04-custom-hooks-use-auth.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
