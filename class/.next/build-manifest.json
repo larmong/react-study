@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/24-03-react-hook-form-with-yup": [
+    "/25-02-destructuring-with-use-state": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/24-03-react-hook-form-with-yup.js"
+      "static/chunks/pages/25-02-destructuring-with-use-state.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
