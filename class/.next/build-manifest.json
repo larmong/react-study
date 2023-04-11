@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/27-01-web-editor": [
+    "/27-04-web-editor-detail/[_id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/27-01-web-editor.js"
+      "static/chunks/pages/27-04-web-editor-detail/[_id].js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
