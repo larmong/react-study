@@ -1,1 +1,14 @@
-{}
+{
+  "27-03-web-editor-submit/index.tsx -> antd": {
+    "id": "27-03-web-editor-submit/index.tsx -> antd",
+    "files": [
+      "static/chunks/node_modules_antd_es_index_js.js"
+    ]
+  },
+  "27-03-web-editor-submit/index.tsx -> react-quill": {
+    "id": "27-03-web-editor-submit/index.tsx -> react-quill",
+    "files": [
+      "static/chunks/node_modules_react-quill_lib_index_js.js"
+    ]
+  }
+}

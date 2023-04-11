@@ -50,6 +50,10 @@ export default function WebEditorPage() {
         },
       },
     });
+
+    const { Modal } = await import("antd");
+    Modal.success({ content: "등록에 성공하였습니다!" });
+
     router.push(
       `/27-04-web-editor-detail/${String(result.data?.createBoard._id)}`
     );
