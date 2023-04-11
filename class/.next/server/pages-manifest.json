@@ -1,5 +1,6 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/26-01-kakao-map": "pages/26-01-kakao-map.js"
 }
