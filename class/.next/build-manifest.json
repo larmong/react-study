@@ -15,15 +15,15 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/27-03-web-editor-submit": [
+    "/": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/27-03-web-editor-submit.js"
+      "static/chunks/pages/index.js"
     ],
-    "/27-04-web-editor-detail/[_id]": [
+    "/28-01-payment": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/27-04-web-editor-detail/[_id].js"
+      "static/chunks/pages/28-01-payment.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",

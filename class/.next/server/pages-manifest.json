@@ -2,5 +2,5 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/27-04-web-editor-detail/[_id]": "pages/27-04-web-editor-detail/[_id].js"
+  "/28-01-payment": "pages/28-01-payment.js"
 }
