@@ -14,3 +14,8 @@ export const visitedPageState = atom({
   key: "visitedPageState",
   default: "",
 });
+
+export const userInfoState = atom({
+  key: "userInfoState",
+  default: "",
+});
