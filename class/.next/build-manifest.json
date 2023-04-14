@@ -15,15 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/30-01-login-refreshtoken": [
+    "/30-03-observable-flatmap": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/30-01-login-refreshtoken.js"
-    ],
-    "/30-02-login-refreshtoken-success": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/30-02-login-refreshtoken-success.js"
+      "static/chunks/pages/30-03-observable-flatmap.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
