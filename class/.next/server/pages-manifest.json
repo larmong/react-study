@@ -1,6 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/31-02-memoization-with-map/01-parent": "pages/31-02-memoization-with-map/01-parent.js"
+  "/_document": "pages/_document.js"
 }

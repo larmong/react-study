@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>프리로드</title>
+
+    <!--  나중에 받는 이미지를 먼저 받도록 조작해주는것  -->
+    <link rel="preload" as="image" href="./image.png">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="index1.js"></script>
+    <script src="index2.js"></script>
+    <script src="index3.js"></script>
+    <script src="index4.js"></script>
+    <script src="index5.js"></script>
+    <!--  여기까지 먼저 받음(최대 6개 까지)  -->
+
+    <script src="index6.js"></script>
+</head>
+<body>
+<img src="./image.png" alt="강아지">
+</body>
+</html>

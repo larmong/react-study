@@ -15,10 +15,10 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/31-02-memoization-with-map/01-parent": [
+    "/31-04-crp-reflow-repaint-with-boards": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/31-02-memoization-with-map/01-parent.js"
+      "static/chunks/pages/31-04-crp-reflow-repaint-with-boards.js"
     ],
     "/_app": [
       "static/chunks/webpack.js",
